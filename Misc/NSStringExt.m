@@ -17,7 +17,10 @@
   if ([array count] > 1) {
     return [array objectAtIndex:[array count] - 2];
   }
-  return [array objectAtIndex:0];
+  if ([array count] > 0) {
+    return [array objectAtIndex:0];
+  }
+  return @"";
 }
 
 - (BOOL)isSameDir:(NSString *)dir
