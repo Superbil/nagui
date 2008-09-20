@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'Nagui' target in the 'Nagui' project
-//
-
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#endif
