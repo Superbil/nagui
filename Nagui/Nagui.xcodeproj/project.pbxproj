@@ -1,0 +1,731 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		183087830E829FDA001BFCC9 /* NgImageTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183087820E829FDA001BFCC9 /* NgImageTextCell.m */; };
+		183089E70E82D537001BFCC9 /* NgTextProgressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 183089E60E82D537001BFCC9 /* NgTextProgressCell.m */; };
+		18308B080E840257001BFCC9 /* NSObjectControllerExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 18308B070E840257001BFCC9 /* NSObjectControllerExt.m */; };
+		18308B7B0E8412DF001BFCC9 /* incomingDir.png in Resources */ = {isa = PBXBuildFile; fileRef = 18308B7A0E8412DF001BFCC9 /* incomingDir.png */; };
+		185464030E577DE000A530CA /* Nagui.m in Sources */ = {isa = PBXBuildFile; fileRef = 185464020E577DE000A530CA /* Nagui.m */; };
+		185464F70E5C6BE700A530CA /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 185464F60E5C6BE700A530CA /* Util.m */; };
+		1854652C0E5C6FD200A530CA /* NgReadBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1854652B0E5C6FD200A530CA /* NgReadBuffer.m */; };
+		185465A80E5F419900A530CA /* NgWriteBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 185465A70E5F419900A530CA /* NgWriteBuffer.m */; };
+		18546E170E72578F004AD45F /* folder_html.png in Resources */ = {isa = PBXBuildFile; fileRef = 18546E160E72578F004AD45F /* folder_html.png */; };
+		185470CD0E72DAB4004AD45F /* NgSharedFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 185470CC0E72DAB4004AD45F /* NgSharedFolder.m */; };
+		186DD9730E73FB54006DC309 /* agt_update_misc.png in Resources */ = {isa = PBXBuildFile; fileRef = 186DD9720E73FB54006DC309 /* agt_update_misc.png */; };
+		186DD9AC0E740D97006DC309 /* folder_open.png in Resources */ = {isa = PBXBuildFile; fileRef = 186DD9AB0E740D97006DC309 /* folder_open.png */; };
+		186DD9FC0E744290006DC309 /* NgFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DD9FB0E744290006DC309 /* NgFile.m */; };
+		186DDAEE0E75B895006DC309 /* button_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = 186DDAED0E75B895006DC309 /* button_cancel.png */; };
+		186DDB060E75F077006DC309 /* icon_animated_busy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 186DDB050E75F077006DC309 /* icon_animated_busy.gif */; };
+		186DDB1C0E76D532006DC309 /* Disk.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 186DDB1B0E76D532006DC309 /* Disk.tiff */; };
+		186DDB220E76D635006DC309 /* kdevelop_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 186DDB210E76D635006DC309 /* kdevelop_down.png */; };
+		186DDB2F0E76E5CF006DC309 /* download16.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 186DDB2E0E76E5CF006DC309 /* download16.tiff */; };
+		186DDB370E76E938006DC309 /* NgAnimateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DDB360E76E938006DC309 /* NgAnimateCell.m */; };
+		1871BA7F0E6B141300340502 /* satellite-Vista-256x256.png in Resources */ = {isa = PBXBuildFile; fileRef = 1871BA7E0E6B141300340502 /* satellite-Vista-256x256.png */; };
+		1871BA8B0E6B16BB00340502 /* download_manager.png in Resources */ = {isa = PBXBuildFile; fileRef = 1871BA8A0E6B16BB00340502 /* download_manager.png */; };
+		1871BA910E6B19FF00340502 /* NgServerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1871BA900E6B19FF00340502 /* NgServerInfo.m */; };
+		1871BA9A0E6B1B5500340502 /* NgAddr.m in Sources */ = {isa = PBXBuildFile; fileRef = 1871BA990E6B1B5500340502 /* NgAddr.m */; };
+		1871BAE60E6B1E6600340502 /* NgServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1871BAE50E6B1E6600340502 /* NgServerManager.m */; };
+		1886DDF80E6483EA006073A4 /* reload_all_tabs.png in Resources */ = {isa = PBXBuildFile; fileRef = 1886DDF70E6483EA006073A4 /* reload_all_tabs.png */; };
+		1886DE210E65B759006073A4 /* NgAvailability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886DE200E65B759006073A4 /* NgAvailability.m */; };
+		1886DE2F0E65BEE7006073A4 /* NgFileFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886DE2E0E65BEE7006073A4 /* NgFileFormat.m */; };
+		1886DE470E65C0FA006073A4 /* NgOggStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886DE460E65C0FA006073A4 /* NgOggStream.m */; };
+		1886DE4F0E65C203006073A4 /* NgOggStreamTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886DE4E0E65C203006073A4 /* NgOggStreamTag.m */; };
+		1886DE570E65C2D8006073A4 /* NgTransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886DE560E65C2D8006073A4 /* NgTransferManager.m */; };
+		1886DE5C0E65C3E7006073A4 /* NgFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886DE5B0E65C3E7006073A4 /* NgFileInfo.m */; };
+		1886DE620E65C5A5006073A4 /* NgSubfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886DE610E65C5A5006073A4 /* NgSubfile.m */; };
+		1886DE6A0E65C713006073A4 /* NgComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886DE690E65C713006073A4 /* NgComment.m */; };
+		1886E1570E696ECC006073A4 /* gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 1886E1560E696ECC006073A4 /* gradient.png */; };
+		1886E18E0E6989DE006073A4 /* NgTimeTrans.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886E18D0E6989DE006073A4 /* NgTimeTrans.m */; };
+		1886E2960E69C940006073A4 /* NgSharedFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886E2950E69C940006073A4 /* NgSharedFile.m */; };
+		1886E2B60E69CD4C006073A4 /* NgClientKind.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886E2B50E69CD4C006073A4 /* NgClientKind.m */; };
+		1886E2C70E69D01D006073A4 /* NgHostState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886E2C60E69D01D006073A4 /* NgHostState.m */; };
+		1886E3020E69D4DD006073A4 /* NgClientInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886E3010E69D4DD006073A4 /* NgClientInfo.m */; };
+		1886E3530E6A60A3006073A4 /* NgStateTrans.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886E3520E6A60A3006073A4 /* NgStateTrans.m */; };
+		1895A2470E7719B4005EB393 /* donkey-256x256.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1895A2460E7719B4005EB393 /* donkey-256x256.icns */; };
+		18D6CEE30E611322008014F5 /* NgSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6CEE20E611322008014F5 /* NgSearch.m */; };
+		18D6CF4F0E61A976008014F5 /* NgTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6CF4E0E61A976008014F5 /* NgTag.m */; };
+		18D6CF860E61AE6D008014F5 /* NgResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6CF850E61AE6D008014F5 /* NgResult.m */; };
+		18D6D0DB0E61DF68008014F5 /* NgFileSizeTrans.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6D0DA0E61DF68008014F5 /* NgFileSizeTrans.m */; };
+		18D6D18E0E633A88008014F5 /* delete_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D6D18D0E633A88008014F5 /* delete_button.png */; };
+		18D77E8F0E60671E001A095C /* Console.icns in Resources */ = {isa = PBXBuildFile; fileRef = 18D77E8E0E60671E001A095C /* Console.icns */; };
+		18D77E980E606BEF001A095C /* find.icns in Resources */ = {isa = PBXBuildFile; fileRef = 18D77E970E606BEF001A095C /* find.icns */; };
+		18D77EAA0E6075D8001A095C /* NgProtocolHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D77EA90E6075D8001A095C /* NgProtocolHandler.m */; };
+		18D77F270E607ADE001A095C /* NgQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D77F260E607ADE001A095C /* NgQuery.m */; };
+		18D77FE70E609D15001A095C /* NgSearchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D77FE60E609D15001A095C /* NgSearchManager.m */; };
+		18DB84D50E7812D300B9CB75 /* mldonkey.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DB84D40E7812D300B9CB75 /* mldonkey.png */; };
+		18DB84DD0E78144A00B9CB75 /* NgMlnetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB84DC0E78144A00B9CB75 /* NgMlnetManager.m */; };
+		18DB86D60E79942400B9CB75 /* ToolbarPublicFolderIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 18DB86D50E79942400B9CB75 /* ToolbarPublicFolderIcon.icns */; };
+		18DB86DB0E79947100B9CB75 /* General.icns in Resources */ = {isa = PBXBuildFile; fileRef = 18DB86DA0E79947100B9CB75 /* General.icns */; };
+		18DB86DF0E7994C900B9CB75 /* SharedComputers.icns in Resources */ = {isa = PBXBuildFile; fileRef = 18DB86DE0E7994C900B9CB75 /* SharedComputers.icns */; };
+		18DB86E30E7996E600B9CB75 /* ToolbarDownloadsFolderIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 18DB86E20E7996E600B9CB75 /* ToolbarDownloadsFolderIcon.icns */; };
+		18DB86E70E79973900B9CB75 /* ToolbarAdvanced.icns in Resources */ = {isa = PBXBuildFile; fileRef = 18DB86E60E79973900B9CB75 /* ToolbarAdvanced.icns */; };
+		18DB86EA0E7997C200B9CB75 /* Sync.icns in Resources */ = {isa = PBXBuildFile; fileRef = 18DB86E90E7997C200B9CB75 /* Sync.icns */; };
+		18DB87200E79A0F600B9CB75 /* mlnet in Resources */ = {isa = PBXBuildFile; fileRef = 18DB871F0E79A0F600B9CB75 /* mlnet */; };
+		18DB87230E79A15F00B9CB75 /* AlertCautionIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 18DB87220E79A15F00B9CB75 /* AlertCautionIcon.icns */; };
+		18DB88340E7BD8A800B9CB75 /* NgShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB88330E7BD8A800B9CB75 /* NgShareManager.m */; };
+		18DB88950E7BECE900B9CB75 /* NgFileGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB88940E7BECE900B9CB75 /* NgFileGroup.m */; };
+		18DB891C0E7BFA2C00B9CB75 /* Folder16.png in Resources */ = {isa = PBXBuildFile; fileRef = 18DB891B0E7BFA2C00B9CB75 /* Folder16.png */; };
+		18DB8A310E7C560200B9CB75 /* NSAttributedStringExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB8A300E7C560200B9CB75 /* NSAttributedStringExt.m */; };
+		18DB8B1F0E7D4ACC00B9CB75 /* NSArrayExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB8B1E0E7D4ACC00B9CB75 /* NSArrayExt.m */; };
+		18DB8CF60E7D9F7600B9CB75 /* NgMovingTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB8CF50E7D9F7600B9CB75 /* NgMovingTask.m */; };
+		18DB8D200E7DA39400B9CB75 /* NgTaskManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB8D1F0E7DA39400B9CB75 /* NgTaskManager.m */; };
+		18DB8D770E7E0F3300B9CB75 /* NSStringExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB8D760E7E0F3300B9CB75 /* NSStringExt.m */; };
+		18DB8FB30E7EC80600B9CB75 /* SmartFolderIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 18DB8FB20E7EC80600B9CB75 /* SmartFolderIcon.icns */; };
+		18DB90070E7ED0B900B9CB75 /* NgGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB90060E7ED0B900B9CB75 /* NgGroup.m */; };
+		18DB900A0E7ED0C900B9CB75 /* NgSmartGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB90090E7ED0C900B9CB75 /* NgSmartGroup.m */; };
+		18DB908C0E80223A00B9CB75 /* To do.txt in Resources */ = {isa = PBXBuildFile; fileRef = 18DB908B0E80223A00B9CB75 /* To do.txt */; };
+		18E8D1710E702CC6002AC3C2 /* sharemanager.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E8D1700E702CC6002AC3C2 /* sharemanager.png */; };
+		18E8D1D00E716459002AC3C2 /* advancedsettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E8D1CF0E716459002AC3C2 /* advancedsettings.png */; };
+		18E8D2300E717355002AC3C2 /* NgOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E8D22F0E717355002AC3C2 /* NgOption.m */; };
+		18E8D2480E717768002AC3C2 /* NgOptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E8D2470E717768002AC3C2 /* NgOptionManager.m */; };
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		183087810E829FDA001BFCC9 /* NgImageTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgImageTextCell.h; sourceTree = "<group>"; };
+		183087820E829FDA001BFCC9 /* NgImageTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgImageTextCell.m; sourceTree = "<group>"; };
+		183089E50E82D537001BFCC9 /* NgTextProgressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgTextProgressCell.h; sourceTree = "<group>"; };
+		183089E60E82D537001BFCC9 /* NgTextProgressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgTextProgressCell.m; sourceTree = "<group>"; };
+		18308B060E840257001BFCC9 /* NSObjectControllerExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObjectControllerExt.h; sourceTree = "<group>"; };
+		18308B070E840257001BFCC9 /* NSObjectControllerExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSObjectControllerExt.m; sourceTree = "<group>"; };
+		18308B7A0E8412DF001BFCC9 /* incomingDir.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = incomingDir.png; sourceTree = "<group>"; };
+		185464010E577DE000A530CA /* Nagui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nagui.h; sourceTree = "<group>"; };
+		185464020E577DE000A530CA /* Nagui.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Nagui.m; sourceTree = "<group>"; };
+		185464F50E5C6BE700A530CA /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		185464F60E5C6BE700A530CA /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		1854652A0E5C6FD200A530CA /* NgReadBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgReadBuffer.h; sourceTree = "<group>"; };
+		1854652B0E5C6FD200A530CA /* NgReadBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgReadBuffer.m; sourceTree = "<group>"; };
+		185465A60E5F419900A530CA /* NgWriteBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgWriteBuffer.h; sourceTree = "<group>"; };
+		185465A70E5F419900A530CA /* NgWriteBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgWriteBuffer.m; sourceTree = "<group>"; };
+		18546E160E72578F004AD45F /* folder_html.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder_html.png; sourceTree = "<group>"; };
+		185470CB0E72DAB4004AD45F /* NgSharedFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgSharedFolder.h; sourceTree = "<group>"; };
+		185470CC0E72DAB4004AD45F /* NgSharedFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgSharedFolder.m; sourceTree = "<group>"; };
+		186DD9720E73FB54006DC309 /* agt_update_misc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = agt_update_misc.png; sourceTree = "<group>"; };
+		186DD9AB0E740D97006DC309 /* folder_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder_open.png; sourceTree = "<group>"; };
+		186DD9FA0E744290006DC309 /* NgFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgFile.h; sourceTree = "<group>"; };
+		186DD9FB0E744290006DC309 /* NgFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgFile.m; sourceTree = "<group>"; };
+		186DDAED0E75B895006DC309 /* button_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_cancel.png; sourceTree = "<group>"; };
+		186DDB050E75F077006DC309 /* icon_animated_busy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = icon_animated_busy.gif; sourceTree = "<group>"; };
+		186DDB1B0E76D532006DC309 /* Disk.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Disk.tiff; sourceTree = "<group>"; };
+		186DDB210E76D635006DC309 /* kdevelop_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kdevelop_down.png; sourceTree = "<group>"; };
+		186DDB2E0E76E5CF006DC309 /* download16.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = download16.tiff; sourceTree = "<group>"; };
+		186DDB350E76E938006DC309 /* NgAnimateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgAnimateCell.h; sourceTree = "<group>"; };
+		186DDB360E76E938006DC309 /* NgAnimateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgAnimateCell.m; sourceTree = "<group>"; };
+		1871BA7E0E6B141300340502 /* satellite-Vista-256x256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "satellite-Vista-256x256.png"; sourceTree = "<group>"; };
+		1871BA8A0E6B16BB00340502 /* download_manager.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download_manager.png; sourceTree = "<group>"; };
+		1871BA8F0E6B19FF00340502 /* NgServerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgServerInfo.h; sourceTree = "<group>"; };
+		1871BA900E6B19FF00340502 /* NgServerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgServerInfo.m; sourceTree = "<group>"; };
+		1871BA980E6B1B5500340502 /* NgAddr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgAddr.h; sourceTree = "<group>"; };
+		1871BA990E6B1B5500340502 /* NgAddr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgAddr.m; sourceTree = "<group>"; };
+		1871BAE40E6B1E6600340502 /* NgServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgServerManager.h; sourceTree = "<group>"; };
+		1871BAE50E6B1E6600340502 /* NgServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgServerManager.m; sourceTree = "<group>"; };
+		1886DDF70E6483EA006073A4 /* reload_all_tabs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload_all_tabs.png; sourceTree = "<group>"; };
+		1886DE1F0E65B759006073A4 /* NgAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgAvailability.h; sourceTree = "<group>"; };
+		1886DE200E65B759006073A4 /* NgAvailability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgAvailability.m; sourceTree = "<group>"; };
+		1886DE2D0E65BEE7006073A4 /* NgFileFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgFileFormat.h; sourceTree = "<group>"; };
+		1886DE2E0E65BEE7006073A4 /* NgFileFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgFileFormat.m; sourceTree = "<group>"; };
+		1886DE450E65C0FA006073A4 /* NgOggStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgOggStream.h; sourceTree = "<group>"; };
+		1886DE460E65C0FA006073A4 /* NgOggStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgOggStream.m; sourceTree = "<group>"; };
+		1886DE4D0E65C203006073A4 /* NgOggStreamTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgOggStreamTag.h; sourceTree = "<group>"; };
+		1886DE4E0E65C203006073A4 /* NgOggStreamTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgOggStreamTag.m; sourceTree = "<group>"; };
+		1886DE550E65C2D8006073A4 /* NgTransferManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgTransferManager.h; sourceTree = "<group>"; };
+		1886DE560E65C2D8006073A4 /* NgTransferManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgTransferManager.m; sourceTree = "<group>"; };
+		1886DE5A0E65C3E7006073A4 /* NgFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgFileInfo.h; sourceTree = "<group>"; };
+		1886DE5B0E65C3E7006073A4 /* NgFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgFileInfo.m; sourceTree = "<group>"; };
+		1886DE600E65C5A5006073A4 /* NgSubfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgSubfile.h; sourceTree = "<group>"; };
+		1886DE610E65C5A5006073A4 /* NgSubfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgSubfile.m; sourceTree = "<group>"; };
+		1886DE680E65C713006073A4 /* NgComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgComment.h; sourceTree = "<group>"; };
+		1886DE690E65C713006073A4 /* NgComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgComment.m; sourceTree = "<group>"; };
+		1886E1560E696ECC006073A4 /* gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradient.png; sourceTree = "<group>"; };
+		1886E18C0E6989DE006073A4 /* NgTimeTrans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgTimeTrans.h; sourceTree = "<group>"; };
+		1886E18D0E6989DE006073A4 /* NgTimeTrans.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgTimeTrans.m; sourceTree = "<group>"; };
+		1886E2940E69C940006073A4 /* NgSharedFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgSharedFile.h; sourceTree = "<group>"; };
+		1886E2950E69C940006073A4 /* NgSharedFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgSharedFile.m; sourceTree = "<group>"; };
+		1886E2B40E69CD4C006073A4 /* NgClientKind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgClientKind.h; sourceTree = "<group>"; };
+		1886E2B50E69CD4C006073A4 /* NgClientKind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgClientKind.m; sourceTree = "<group>"; };
+		1886E2C50E69D01D006073A4 /* NgHostState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgHostState.h; sourceTree = "<group>"; };
+		1886E2C60E69D01D006073A4 /* NgHostState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgHostState.m; sourceTree = "<group>"; };
+		1886E3000E69D4DD006073A4 /* NgClientInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgClientInfo.h; sourceTree = "<group>"; };
+		1886E3010E69D4DD006073A4 /* NgClientInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgClientInfo.m; sourceTree = "<group>"; };
+		1886E3510E6A60A3006073A4 /* NgStateTrans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgStateTrans.h; sourceTree = "<group>"; };
+		1886E3520E6A60A3006073A4 /* NgStateTrans.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgStateTrans.m; sourceTree = "<group>"; };
+		1895A2460E7719B4005EB393 /* donkey-256x256.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "donkey-256x256.icns"; sourceTree = "<group>"; };
+		18D6CEE10E611322008014F5 /* NgSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgSearch.h; sourceTree = "<group>"; };
+		18D6CEE20E611322008014F5 /* NgSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgSearch.m; sourceTree = "<group>"; };
+		18D6CF4D0E61A976008014F5 /* NgTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgTag.h; sourceTree = "<group>"; };
+		18D6CF4E0E61A976008014F5 /* NgTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgTag.m; sourceTree = "<group>"; };
+		18D6CF840E61AE6D008014F5 /* NgResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgResult.h; sourceTree = "<group>"; };
+		18D6CF850E61AE6D008014F5 /* NgResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgResult.m; sourceTree = "<group>"; };
+		18D6D0D90E61DF68008014F5 /* NgFileSizeTrans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgFileSizeTrans.h; sourceTree = "<group>"; };
+		18D6D0DA0E61DF68008014F5 /* NgFileSizeTrans.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgFileSizeTrans.m; sourceTree = "<group>"; };
+		18D6D18D0E633A88008014F5 /* delete_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete_button.png; sourceTree = "<group>"; };
+		18D77E8E0E60671E001A095C /* Console.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Console.icns; sourceTree = "<group>"; };
+		18D77E970E606BEF001A095C /* find.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = find.icns; sourceTree = "<group>"; };
+		18D77EA80E6075D8001A095C /* NgProtocolHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgProtocolHandler.h; sourceTree = "<group>"; };
+		18D77EA90E6075D8001A095C /* NgProtocolHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgProtocolHandler.m; sourceTree = "<group>"; };
+		18D77F250E607ADE001A095C /* NgQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgQuery.h; sourceTree = "<group>"; };
+		18D77F260E607ADE001A095C /* NgQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgQuery.m; sourceTree = "<group>"; };
+		18D77FE50E609D15001A095C /* NgSearchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgSearchManager.h; sourceTree = "<group>"; };
+		18D77FE60E609D15001A095C /* NgSearchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgSearchManager.m; sourceTree = "<group>"; };
+		18DB84D40E7812D300B9CB75 /* mldonkey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mldonkey.png; sourceTree = "<group>"; };
+		18DB84DB0E78144A00B9CB75 /* NgMlnetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgMlnetManager.h; sourceTree = "<group>"; };
+		18DB84DC0E78144A00B9CB75 /* NgMlnetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgMlnetManager.m; sourceTree = "<group>"; };
+		18DB86D50E79942400B9CB75 /* ToolbarPublicFolderIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ToolbarPublicFolderIcon.icns; sourceTree = "<group>"; };
+		18DB86DA0E79947100B9CB75 /* General.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = General.icns; sourceTree = "<group>"; };
+		18DB86DE0E7994C900B9CB75 /* SharedComputers.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = SharedComputers.icns; sourceTree = "<group>"; };
+		18DB86E20E7996E600B9CB75 /* ToolbarDownloadsFolderIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ToolbarDownloadsFolderIcon.icns; sourceTree = "<group>"; };
+		18DB86E60E79973900B9CB75 /* ToolbarAdvanced.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ToolbarAdvanced.icns; sourceTree = "<group>"; };
+		18DB86E90E7997C200B9CB75 /* Sync.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Sync.icns; sourceTree = "<group>"; };
+		18DB871F0E79A0F600B9CB75 /* mlnet */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = mlnet; sourceTree = "<group>"; };
+		18DB87220E79A15F00B9CB75 /* AlertCautionIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AlertCautionIcon.icns; sourceTree = "<group>"; };
+		18DB88320E7BD8A800B9CB75 /* NgShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgShareManager.h; sourceTree = "<group>"; };
+		18DB88330E7BD8A800B9CB75 /* NgShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgShareManager.m; sourceTree = "<group>"; };
+		18DB88930E7BECE900B9CB75 /* NgFileGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgFileGroup.h; sourceTree = "<group>"; };
+		18DB88940E7BECE900B9CB75 /* NgFileGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgFileGroup.m; sourceTree = "<group>"; };
+		18DB891B0E7BFA2C00B9CB75 /* Folder16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Folder16.png; sourceTree = "<group>"; };
+		18DB8A2F0E7C560200B9CB75 /* NSAttributedStringExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSAttributedStringExt.h; sourceTree = "<group>"; };
+		18DB8A300E7C560200B9CB75 /* NSAttributedStringExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSAttributedStringExt.m; sourceTree = "<group>"; };
+		18DB8B1D0E7D4ACC00B9CB75 /* NSArrayExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayExt.h; sourceTree = "<group>"; };
+		18DB8B1E0E7D4ACC00B9CB75 /* NSArrayExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayExt.m; sourceTree = "<group>"; };
+		18DB8CF40E7D9F7600B9CB75 /* NgMovingTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgMovingTask.h; sourceTree = "<group>"; };
+		18DB8CF50E7D9F7600B9CB75 /* NgMovingTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgMovingTask.m; sourceTree = "<group>"; };
+		18DB8D1E0E7DA39400B9CB75 /* NgTaskManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgTaskManager.h; sourceTree = "<group>"; };
+		18DB8D1F0E7DA39400B9CB75 /* NgTaskManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgTaskManager.m; sourceTree = "<group>"; };
+		18DB8D750E7E0F3300B9CB75 /* NSStringExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringExt.h; sourceTree = "<group>"; };
+		18DB8D760E7E0F3300B9CB75 /* NSStringExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringExt.m; sourceTree = "<group>"; };
+		18DB8FB20E7EC80600B9CB75 /* SmartFolderIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = SmartFolderIcon.icns; sourceTree = "<group>"; };
+		18DB90050E7ED0B900B9CB75 /* NgGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgGroup.h; sourceTree = "<group>"; };
+		18DB90060E7ED0B900B9CB75 /* NgGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgGroup.m; sourceTree = "<group>"; };
+		18DB90080E7ED0C900B9CB75 /* NgSmartGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgSmartGroup.h; sourceTree = "<group>"; };
+		18DB90090E7ED0C900B9CB75 /* NgSmartGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgSmartGroup.m; sourceTree = "<group>"; };
+		18DB908B0E80223A00B9CB75 /* To do.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "To do.txt"; sourceTree = "<group>"; };
+		18E8CFDF0E6D9E09002AC3C2 /* NgProgressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgProgressCell.h; sourceTree = "<group>"; };
+		18E8CFE00E6D9E09002AC3C2 /* NgProgressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgProgressCell.m; sourceTree = "<group>"; };
+		18E8D1700E702CC6002AC3C2 /* sharemanager.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sharemanager.png; sourceTree = "<group>"; };
+		18E8D1CF0E716459002AC3C2 /* advancedsettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = advancedsettings.png; sourceTree = "<group>"; };
+		18E8D22E0E717355002AC3C2 /* NgOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgOption.h; sourceTree = "<group>"; };
+		18E8D22F0E717355002AC3C2 /* NgOption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgOption.m; sourceTree = "<group>"; };
+		18E8D2460E717768002AC3C2 /* NgOptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgOptionManager.h; sourceTree = "<group>"; };
+		18E8D2470E717768002AC3C2 /* NgOptionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgOptionManager.m; sourceTree = "<group>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32CA4F630368D1EE00C91783 /* Nagui_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nagui_Prefix.pch; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* Nagui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nagui.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				18E8CFDE0E6D9DF0002AC3C2 /* View */,
+				1886E06F0E67161F006073A4 /* Controller */,
+				1886E05C0E670D8A006073A4 /* Misc */,
+				1886DF4C0E65D75F006073A4 /* Model */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		1886DF4C0E65D75F006073A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18D77F250E607ADE001A095C /* NgQuery.h */,
+				18D77F260E607ADE001A095C /* NgQuery.m */,
+				18D6CEE10E611322008014F5 /* NgSearch.h */,
+				18D6CEE20E611322008014F5 /* NgSearch.m */,
+				18D6CF840E61AE6D008014F5 /* NgResult.h */,
+				18D6CF850E61AE6D008014F5 /* NgResult.m */,
+				1886DE1F0E65B759006073A4 /* NgAvailability.h */,
+				1886DE200E65B759006073A4 /* NgAvailability.m */,
+				1886DE5A0E65C3E7006073A4 /* NgFileInfo.h */,
+				1886DE5B0E65C3E7006073A4 /* NgFileInfo.m */,
+				1886DE2D0E65BEE7006073A4 /* NgFileFormat.h */,
+				1886DE2E0E65BEE7006073A4 /* NgFileFormat.m */,
+				1886DE450E65C0FA006073A4 /* NgOggStream.h */,
+				1886DE460E65C0FA006073A4 /* NgOggStream.m */,
+				1886DE4D0E65C203006073A4 /* NgOggStreamTag.h */,
+				1886DE4E0E65C203006073A4 /* NgOggStreamTag.m */,
+				1886DE600E65C5A5006073A4 /* NgSubfile.h */,
+				1886DE610E65C5A5006073A4 /* NgSubfile.m */,
+				1886DE680E65C713006073A4 /* NgComment.h */,
+				1886DE690E65C713006073A4 /* NgComment.m */,
+				18D6CF4D0E61A976008014F5 /* NgTag.h */,
+				18D6CF4E0E61A976008014F5 /* NgTag.m */,
+				1886E2940E69C940006073A4 /* NgSharedFile.h */,
+				1886E2950E69C940006073A4 /* NgSharedFile.m */,
+				1886E2B40E69CD4C006073A4 /* NgClientKind.h */,
+				1886E2B50E69CD4C006073A4 /* NgClientKind.m */,
+				1886E2C50E69D01D006073A4 /* NgHostState.h */,
+				1886E2C60E69D01D006073A4 /* NgHostState.m */,
+				1886E3000E69D4DD006073A4 /* NgClientInfo.h */,
+				1886E3010E69D4DD006073A4 /* NgClientInfo.m */,
+				1871BA8F0E6B19FF00340502 /* NgServerInfo.h */,
+				1871BA900E6B19FF00340502 /* NgServerInfo.m */,
+				1871BA980E6B1B5500340502 /* NgAddr.h */,
+				1871BA990E6B1B5500340502 /* NgAddr.m */,
+				18E8D22E0E717355002AC3C2 /* NgOption.h */,
+				18E8D22F0E717355002AC3C2 /* NgOption.m */,
+				185470CB0E72DAB4004AD45F /* NgSharedFolder.h */,
+				185470CC0E72DAB4004AD45F /* NgSharedFolder.m */,
+				18DB8CF40E7D9F7600B9CB75 /* NgMovingTask.h */,
+				18DB8CF50E7D9F7600B9CB75 /* NgMovingTask.m */,
+				18DB90050E7ED0B900B9CB75 /* NgGroup.h */,
+				18DB90060E7ED0B900B9CB75 /* NgGroup.m */,
+				18DB88930E7BECE900B9CB75 /* NgFileGroup.h */,
+				18DB88940E7BECE900B9CB75 /* NgFileGroup.m */,
+				18DB90080E7ED0C900B9CB75 /* NgSmartGroup.h */,
+				18DB90090E7ED0C900B9CB75 /* NgSmartGroup.m */,
+				186DD9FA0E744290006DC309 /* NgFile.h */,
+				186DD9FB0E744290006DC309 /* NgFile.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1886E05C0E670D8A006073A4 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				32CA4F630368D1EE00C91783 /* Nagui_Prefix.pch */,
+				185464F50E5C6BE700A530CA /* Util.h */,
+				185464F60E5C6BE700A530CA /* Util.m */,
+				1854652A0E5C6FD200A530CA /* NgReadBuffer.h */,
+				1854652B0E5C6FD200A530CA /* NgReadBuffer.m */,
+				185465A60E5F419900A530CA /* NgWriteBuffer.h */,
+				185465A70E5F419900A530CA /* NgWriteBuffer.m */,
+				18D6D0D90E61DF68008014F5 /* NgFileSizeTrans.h */,
+				18D6D0DA0E61DF68008014F5 /* NgFileSizeTrans.m */,
+				1886E18C0E6989DE006073A4 /* NgTimeTrans.h */,
+				1886E18D0E6989DE006073A4 /* NgTimeTrans.m */,
+				1886E3510E6A60A3006073A4 /* NgStateTrans.h */,
+				1886E3520E6A60A3006073A4 /* NgStateTrans.m */,
+				18DB8A2F0E7C560200B9CB75 /* NSAttributedStringExt.h */,
+				18DB8A300E7C560200B9CB75 /* NSAttributedStringExt.m */,
+				18DB8B1D0E7D4ACC00B9CB75 /* NSArrayExt.h */,
+				18DB8B1E0E7D4ACC00B9CB75 /* NSArrayExt.m */,
+				18DB8D750E7E0F3300B9CB75 /* NSStringExt.h */,
+				18DB8D760E7E0F3300B9CB75 /* NSStringExt.m */,
+				18308B060E840257001BFCC9 /* NSObjectControllerExt.h */,
+				18308B070E840257001BFCC9 /* NSObjectControllerExt.m */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		1886E06F0E67161F006073A4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				185464010E577DE000A530CA /* Nagui.h */,
+				185464020E577DE000A530CA /* Nagui.m */,
+				18D77EA80E6075D8001A095C /* NgProtocolHandler.h */,
+				18D77EA90E6075D8001A095C /* NgProtocolHandler.m */,
+				18D77FE50E609D15001A095C /* NgSearchManager.h */,
+				18D77FE60E609D15001A095C /* NgSearchManager.m */,
+				1886DE550E65C2D8006073A4 /* NgTransferManager.h */,
+				1886DE560E65C2D8006073A4 /* NgTransferManager.m */,
+				1871BAE40E6B1E6600340502 /* NgServerManager.h */,
+				1871BAE50E6B1E6600340502 /* NgServerManager.m */,
+				18E8D2460E717768002AC3C2 /* NgOptionManager.h */,
+				18E8D2470E717768002AC3C2 /* NgOptionManager.m */,
+				18DB84DB0E78144A00B9CB75 /* NgMlnetManager.h */,
+				18DB84DC0E78144A00B9CB75 /* NgMlnetManager.m */,
+				18DB88320E7BD8A800B9CB75 /* NgShareManager.h */,
+				18DB88330E7BD8A800B9CB75 /* NgShareManager.m */,
+				18DB8D1E0E7DA39400B9CB75 /* NgTaskManager.h */,
+				18DB8D1F0E7DA39400B9CB75 /* NgTaskManager.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		18D77E8D0E60671E001A095C /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				18DB8FB20E7EC80600B9CB75 /* SmartFolderIcon.icns */,
+				18DB891B0E7BFA2C00B9CB75 /* Folder16.png */,
+				18DB87220E79A15F00B9CB75 /* AlertCautionIcon.icns */,
+				18DB86E90E7997C200B9CB75 /* Sync.icns */,
+				18DB86E60E79973900B9CB75 /* ToolbarAdvanced.icns */,
+				18DB86E20E7996E600B9CB75 /* ToolbarDownloadsFolderIcon.icns */,
+				18DB86DE0E7994C900B9CB75 /* SharedComputers.icns */,
+				18DB86DA0E79947100B9CB75 /* General.icns */,
+				18DB86D50E79942400B9CB75 /* ToolbarPublicFolderIcon.icns */,
+				18308B7A0E8412DF001BFCC9 /* incomingDir.png */,
+				186DDB2E0E76E5CF006DC309 /* download16.tiff */,
+				186DDB210E76D635006DC309 /* kdevelop_down.png */,
+				186DDB1B0E76D532006DC309 /* Disk.tiff */,
+				186DDB050E75F077006DC309 /* icon_animated_busy.gif */,
+				186DDAED0E75B895006DC309 /* button_cancel.png */,
+				18DB84D40E7812D300B9CB75 /* mldonkey.png */,
+				186DD9AB0E740D97006DC309 /* folder_open.png */,
+				1895A2460E7719B4005EB393 /* donkey-256x256.icns */,
+				186DD9720E73FB54006DC309 /* agt_update_misc.png */,
+				18546E160E72578F004AD45F /* folder_html.png */,
+				18E8D1700E702CC6002AC3C2 /* sharemanager.png */,
+				1871BA8A0E6B16BB00340502 /* download_manager.png */,
+				1871BA7E0E6B141300340502 /* satellite-Vista-256x256.png */,
+				1886E1560E696ECC006073A4 /* gradient.png */,
+				18E8D1CF0E716459002AC3C2 /* advancedsettings.png */,
+				18D77E970E606BEF001A095C /* find.icns */,
+				18D77E8E0E60671E001A095C /* Console.icns */,
+				1886DDF70E6483EA006073A4 /* reload_all_tabs.png */,
+				18D6D18D0E633A88008014F5 /* delete_button.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		18E8CFDE0E6D9DF0002AC3C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18E8CFDF0E6D9E09002AC3C2 /* NgProgressCell.h */,
+				18E8CFE00E6D9E09002AC3C2 /* NgProgressCell.m */,
+				186DDB350E76E938006DC309 /* NgAnimateCell.h */,
+				186DDB360E76E938006DC309 /* NgAnimateCell.m */,
+				183087810E829FDA001BFCC9 /* NgImageTextCell.h */,
+				183087820E829FDA001BFCC9 /* NgImageTextCell.m */,
+				183089E50E82D537001BFCC9 /* NgTextProgressCell.h */,
+				183089E60E82D537001BFCC9 /* NgTextProgressCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* Nagui.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* Nagui */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+				18DB908B0E80223A00B9CB75 /* To do.txt */,
+			);
+			name = Nagui;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				18DB871F0E79A0F600B9CB75 /* mlnet */,
+				18D77E8D0E60671E001A095C /* Image */,
+				8D1107310486CEB800E47090 /* Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* Nagui */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Nagui" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nagui;
+			productInstallPath = "$(HOME)/Applications";
+			productName = Nagui;
+			productReference = 8D1107320486CEB800E47090 /* Nagui.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Nagui" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				ko,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* Nagui */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* Nagui */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				18D77E8F0E60671E001A095C /* Console.icns in Resources */,
+				18D77E980E606BEF001A095C /* find.icns in Resources */,
+				18D6D18E0E633A88008014F5 /* delete_button.png in Resources */,
+				1886DDF80E6483EA006073A4 /* reload_all_tabs.png in Resources */,
+				1886E1570E696ECC006073A4 /* gradient.png in Resources */,
+				1871BA7F0E6B141300340502 /* satellite-Vista-256x256.png in Resources */,
+				1871BA8B0E6B16BB00340502 /* download_manager.png in Resources */,
+				18E8D1710E702CC6002AC3C2 /* sharemanager.png in Resources */,
+				18E8D1D00E716459002AC3C2 /* advancedsettings.png in Resources */,
+				18546E170E72578F004AD45F /* folder_html.png in Resources */,
+				186DD9730E73FB54006DC309 /* agt_update_misc.png in Resources */,
+				186DD9AC0E740D97006DC309 /* folder_open.png in Resources */,
+				186DDAEE0E75B895006DC309 /* button_cancel.png in Resources */,
+				186DDB060E75F077006DC309 /* icon_animated_busy.gif in Resources */,
+				186DDB1C0E76D532006DC309 /* Disk.tiff in Resources */,
+				186DDB220E76D635006DC309 /* kdevelop_down.png in Resources */,
+				186DDB2F0E76E5CF006DC309 /* download16.tiff in Resources */,
+				1895A2470E7719B4005EB393 /* donkey-256x256.icns in Resources */,
+				18DB84D50E7812D300B9CB75 /* mldonkey.png in Resources */,
+				18DB86D60E79942400B9CB75 /* ToolbarPublicFolderIcon.icns in Resources */,
+				18DB86DB0E79947100B9CB75 /* General.icns in Resources */,
+				18DB86DF0E7994C900B9CB75 /* SharedComputers.icns in Resources */,
+				18DB86E30E7996E600B9CB75 /* ToolbarDownloadsFolderIcon.icns in Resources */,
+				18DB86E70E79973900B9CB75 /* ToolbarAdvanced.icns in Resources */,
+				18DB86EA0E7997C200B9CB75 /* Sync.icns in Resources */,
+				18DB87200E79A0F600B9CB75 /* mlnet in Resources */,
+				18DB87230E79A15F00B9CB75 /* AlertCautionIcon.icns in Resources */,
+				18DB891C0E7BFA2C00B9CB75 /* Folder16.png in Resources */,
+				18DB8FB30E7EC80600B9CB75 /* SmartFolderIcon.icns in Resources */,
+				18DB908C0E80223A00B9CB75 /* To do.txt in Resources */,
+				18308B7B0E8412DF001BFCC9 /* incomingDir.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072D0486CEB800E47090 /* main.m in Sources */,
+				185464030E577DE000A530CA /* Nagui.m in Sources */,
+				185464F70E5C6BE700A530CA /* Util.m in Sources */,
+				1854652C0E5C6FD200A530CA /* NgReadBuffer.m in Sources */,
+				185465A80E5F419900A530CA /* NgWriteBuffer.m in Sources */,
+				18D77EAA0E6075D8001A095C /* NgProtocolHandler.m in Sources */,
+				18D77F270E607ADE001A095C /* NgQuery.m in Sources */,
+				18D77FE70E609D15001A095C /* NgSearchManager.m in Sources */,
+				18D6CEE30E611322008014F5 /* NgSearch.m in Sources */,
+				18D6CF4F0E61A976008014F5 /* NgTag.m in Sources */,
+				18D6CF860E61AE6D008014F5 /* NgResult.m in Sources */,
+				18D6D0DB0E61DF68008014F5 /* NgFileSizeTrans.m in Sources */,
+				1886DE210E65B759006073A4 /* NgAvailability.m in Sources */,
+				1886DE2F0E65BEE7006073A4 /* NgFileFormat.m in Sources */,
+				1886DE470E65C0FA006073A4 /* NgOggStream.m in Sources */,
+				1886DE4F0E65C203006073A4 /* NgOggStreamTag.m in Sources */,
+				1886DE570E65C2D8006073A4 /* NgTransferManager.m in Sources */,
+				1886DE5C0E65C3E7006073A4 /* NgFileInfo.m in Sources */,
+				1886DE620E65C5A5006073A4 /* NgSubfile.m in Sources */,
+				1886DE6A0E65C713006073A4 /* NgComment.m in Sources */,
+				1886E18E0E6989DE006073A4 /* NgTimeTrans.m in Sources */,
+				1886E2960E69C940006073A4 /* NgSharedFile.m in Sources */,
+				1886E2B60E69CD4C006073A4 /* NgClientKind.m in Sources */,
+				1886E2C70E69D01D006073A4 /* NgHostState.m in Sources */,
+				1886E3020E69D4DD006073A4 /* NgClientInfo.m in Sources */,
+				1886E3530E6A60A3006073A4 /* NgStateTrans.m in Sources */,
+				1871BA910E6B19FF00340502 /* NgServerInfo.m in Sources */,
+				1871BA9A0E6B1B5500340502 /* NgAddr.m in Sources */,
+				1871BAE60E6B1E6600340502 /* NgServerManager.m in Sources */,
+				18E8D2300E717355002AC3C2 /* NgOption.m in Sources */,
+				18E8D2480E717768002AC3C2 /* NgOptionManager.m in Sources */,
+				185470CD0E72DAB4004AD45F /* NgSharedFolder.m in Sources */,
+				186DD9FC0E744290006DC309 /* NgFile.m in Sources */,
+				186DDB370E76E938006DC309 /* NgAnimateCell.m in Sources */,
+				18DB84DD0E78144A00B9CB75 /* NgMlnetManager.m in Sources */,
+				18DB88340E7BD8A800B9CB75 /* NgShareManager.m in Sources */,
+				18DB88950E7BECE900B9CB75 /* NgFileGroup.m in Sources */,
+				18DB8A310E7C560200B9CB75 /* NSAttributedStringExt.m in Sources */,
+				18DB8B1F0E7D4ACC00B9CB75 /* NSArrayExt.m in Sources */,
+				18DB8CF60E7D9F7600B9CB75 /* NgMovingTask.m in Sources */,
+				18DB8D200E7DA39400B9CB75 /* NgTaskManager.m in Sources */,
+				18DB8D770E7E0F3300B9CB75 /* NSStringExt.m in Sources */,
+				18DB90070E7ED0B900B9CB75 /* NgGroup.m in Sources */,
+				18DB900A0E7ED0C900B9CB75 /* NgSmartGroup.m in Sources */,
+				183087830E829FDA001BFCC9 /* NgImageTextCell.m in Sources */,
+				183089E70E82D537001BFCC9 /* NgTextProgressCell.m in Sources */,
+				18308B080E840257001BFCC9 /* NSObjectControllerExt.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Misc/Nagui_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Nagui;
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Misc/Nagui_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = Nagui;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = 4.2;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_VERSION = 4.2;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Nagui" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Nagui" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

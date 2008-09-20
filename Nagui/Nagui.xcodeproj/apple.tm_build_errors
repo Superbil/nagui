@@ -1,0 +1,3 @@
+/Users/apple/Nagui/NgFolder.m|78|warning: property ‘folders’ requires the method 'setFolders:' to be defined - use @synthesize, @dynamic or provide a method implementation
+/Users/apple/Nagui/NgFolder.m|78|warning: incomplete implementation of class ‘NgFolder’
+/Users/apple/Nagui/NgFolder.m|78|warning: method definition for ‘-fillFolders’ not found
