@@ -82,6 +82,7 @@
 - (void)alert:(NSString *)msg informative:(NSString *)informative;
 - (void)error:(OSStatus)error;
 - (BOOL)askDelete:(NSString *)fileName;
+- (BOOL)showingShare;
 
 - (IBAction)showConsole:sender;
 - (IBAction)showSearch:sender;

@@ -170,6 +170,11 @@ Nagui *nagui;
   currentManager = mlnetManager;
 }
 
+- (BOOL)showingShare
+{
+  return currentManager == shareManager;
+}
+
 - (BOOL)validateUserInterfaceItem:item
 {
   SEL action = [item action];

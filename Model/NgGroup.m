@@ -11,6 +11,7 @@
 #import "NgFileGroup.h"
 #import "Nagui.h"
 #import "NgShareManager.h"
+#import "NSMutableArrayExt.h"
 
 @implementation NgGroup
 
@@ -118,9 +119,10 @@
 - (void)reloadDir:(NSString *)dir
 {
   NSString *p = [self path];
-  if ([p isEqualToString:dir]) {
+  if (!p || [p isEqualToString:dir]) {
     [self reload];
-  } else if ([p length] < [dir length]) {
+  }
+  if (!p || [p length] < [dir length]) {
     for (NgGroup *g in folders) {
       [g reloadDir:dir];
     }
@@ -134,6 +136,18 @@
 - (BOOL)removeFolder
 {
   return YES;
+}
+
+- (NSMutableArray *)allFiles
+{
+  NSMutableArray *array = [NSMutableArray arrayWithCapacity:10];
+  [array addObjectsFromArrayUnique:[self files]];
+  for (NgGroup *g in [self folders]) {
+    if ([g type] != NgSmartAllFiles) {
+      [array addObjectsFromArrayUnique:[g allFiles]];
+    }
+  }
+  return array;
 }
 
 @end

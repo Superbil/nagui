@@ -17,6 +17,8 @@
 		185465A80E5F419900A530CA /* NgWriteBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 185465A70E5F419900A530CA /* NgWriteBuffer.m */; };
 		18546E170E72578F004AD45F /* folder_html.png in Resources */ = {isa = PBXBuildFile; fileRef = 18546E160E72578F004AD45F /* folder_html.png */; };
 		185470CD0E72DAB4004AD45F /* NgSharedFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 185470CC0E72DAB4004AD45F /* NgSharedFolder.m */; };
+		186288840E853173000D8B85 /* NgFileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 186288830E853173000D8B85 /* NgFileController.m */; };
+		186288B10E854419000D8B85 /* NSMutableArrayExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 186288B00E854419000D8B85 /* NSMutableArrayExt.m */; };
 		186DD9730E73FB54006DC309 /* agt_update_misc.png in Resources */ = {isa = PBXBuildFile; fileRef = 186DD9720E73FB54006DC309 /* agt_update_misc.png */; };
 		186DD9AC0E740D97006DC309 /* folder_open.png in Resources */ = {isa = PBXBuildFile; fileRef = 186DD9AB0E740D97006DC309 /* folder_open.png */; };
 		186DD9FC0E744290006DC309 /* NgFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 186DD9FB0E744290006DC309 /* NgFile.m */; };
@@ -112,6 +114,10 @@
 		18546E160E72578F004AD45F /* folder_html.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder_html.png; sourceTree = "<group>"; };
 		185470CB0E72DAB4004AD45F /* NgSharedFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgSharedFolder.h; sourceTree = "<group>"; };
 		185470CC0E72DAB4004AD45F /* NgSharedFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgSharedFolder.m; sourceTree = "<group>"; };
+		186288820E853173000D8B85 /* NgFileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgFileController.h; sourceTree = "<group>"; };
+		186288830E853173000D8B85 /* NgFileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgFileController.m; sourceTree = "<group>"; };
+		186288AF0E854419000D8B85 /* NSMutableArrayExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSMutableArrayExt.h; sourceTree = "<group>"; };
+		186288B00E854419000D8B85 /* NSMutableArrayExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSMutableArrayExt.m; sourceTree = "<group>"; };
 		186DD9720E73FB54006DC309 /* agt_update_misc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = agt_update_misc.png; sourceTree = "<group>"; };
 		186DD9AB0E740D97006DC309 /* folder_open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder_open.png; sourceTree = "<group>"; };
 		186DD9FA0E744290006DC309 /* NgFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgFile.h; sourceTree = "<group>"; };
@@ -327,6 +333,8 @@
 		1886E05C0E670D8A006073A4 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				186288AF0E854419000D8B85 /* NSMutableArrayExt.h */,
+				186288B00E854419000D8B85 /* NSMutableArrayExt.m */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				32CA4F630368D1EE00C91783 /* Nagui_Prefix.pch */,
 				185464F50E5C6BE700A530CA /* Util.h */,
@@ -374,6 +382,8 @@
 				18DB88330E7BD8A800B9CB75 /* NgShareManager.m */,
 				18DB8D1E0E7DA39400B9CB75 /* NgTaskManager.h */,
 				18DB8D1F0E7DA39400B9CB75 /* NgTaskManager.m */,
+				186288820E853173000D8B85 /* NgFileController.h */,
+				186288830E853173000D8B85 /* NgFileController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -618,6 +628,8 @@
 				183087830E829FDA001BFCC9 /* NgImageTextCell.m in Sources */,
 				183089E70E82D537001BFCC9 /* NgTextProgressCell.m in Sources */,
 				18308B080E840257001BFCC9 /* NSObjectControllerExt.m in Sources */,
+				186288840E853173000D8B85 /* NgFileController.m in Sources */,
+				186288B10E854419000D8B85 /* NSMutableArrayExt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

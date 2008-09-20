@@ -9,6 +9,7 @@
 #import "NgFile.h"
 #include <sys/xattr.h>
 #import "Nagui.h"
+#import "NSStringExt.h"
 
 @implementation NgFile
 
@@ -27,6 +28,11 @@
     return [path isEqualToString:[file path]];
   }
   return NO;
+}
+
+- (NSURL *)url
+{
+  return [[NSURL alloc] initWithScheme:@"file" host:@"localhost" path:path];
 }
 
 - (NSString *)name
@@ -117,6 +123,14 @@
     removexattr(pathStr, "tagsLen", 0);
     removexattr(pathStr, "tags", 0);
   }
+}
+
+- (BOOL)match:(NSString *)str
+{
+  if ([name contains:str] || [tags contains:str]) {
+    return YES;
+  }
+  return NO;
 }
 
 @end

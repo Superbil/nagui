@@ -35,7 +35,10 @@
 
 - (NSString *)fileName
 {
-  return [fileNames objectAtIndex:0];
+  if ([fileNames count] > 0) {
+    return [fileNames objectAtIndex:0];
+  }
+  return @"";
 }
 
 - (int)available

@@ -423,8 +423,10 @@
   int fileState = [self getFileState];
   fileInfo.chunks = [self getChunks];
   NSArray *availList = [self getAvailabilityList];
-  NgAvailability *avail = [availList objectAtIndex:0];
-  fileInfo.availability = avail.chunks;
+  if ([availList count] > 0) {
+    NgAvailability *avail = [availList objectAtIndex:0];
+    fileInfo.availability = avail.chunks;
+  }
   fileInfo.downloadSpeed = [self getFloat];
   NSArray *ages = [self getIntList];
   int age = [self getInt];

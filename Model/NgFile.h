@@ -26,5 +26,6 @@
 @property(assign) NSString *tags;
 
 - initPath:(NSString *)path;
+- (BOOL)match:(NSString *)str;
 
 @end

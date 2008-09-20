@@ -23,6 +23,7 @@
 @implementation NgShareManager
 
 @synthesize shareController;
+@synthesize root;
 
 - (void)awakeFromNib
 {
@@ -117,6 +118,7 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
 {
   [root willChangeValueForKey:@"folders"];
   [[root folders] removeAllObjects];
+  [root addGroup:@"All Files" type:NgSmartAllFiles];
   [root didChangeValueForKey:@"folders"];
   
   NSArray *lines = [msg componentsSeparatedByString:@"Shared directories:\n"];
@@ -330,20 +332,23 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
 {
   NgGroup *group = [shareController selectedObject];
   if (group) {
-    NSString *srcDir = [group path];
     NSArray *array = [sharedFileController selectedObjects];
     if ([array count] > 0) {
-      NSArray *files = [[array arrayByPerform:@selector(path)] arrayByPerform:@selector(lastPathComponent)];
-      int tag = 0;
-      [[NSWorkspace sharedWorkspace] performFileOperation:NSWorkspaceRecycleOperation
-                                                   source:srcDir destination:@"" files:files tag:&tag];
-      if (tag < 0) {
-        if ([nagui askDelete:[files objectAtIndex:0]]) {
-          [[NSWorkspace sharedWorkspace] performFileOperation:NSWorkspaceDestroyOperation
-                                                       source:srcDir destination:@"" files:files tag:&tag];
-          if (tag < 0) {
-            [nagui alert:[NSString stringWithFormat:@"Can't move to trash:'%@'", [files objectAtIndex:0]]
-             informative:@""];
+      NSArray *files = [array arrayByPerform:@selector(path)];
+      for (NSString *path in files) {
+        NSString *dir = [path stringByDeletingLastPathComponent];
+        NSArray *fileArray = [NSArray arrayWithObject:[path lastPathComponent]];
+        int tag = 0;
+        [[NSWorkspace sharedWorkspace] performFileOperation:NSWorkspaceRecycleOperation
+                                                     source:dir destination:@"" files:fileArray tag:&tag];
+        if (tag < 0) {
+          if ([nagui askDelete:[fileArray objectAtIndex:0]]) {
+            [[NSWorkspace sharedWorkspace] performFileOperation:NSWorkspaceDestroyOperation
+                                                         source:dir destination:@"" files:fileArray tag:&tag];
+            if (tag < 0) {
+              [nagui alert:[NSString stringWithFormat:@"Can't delete:'%@'", [fileArray objectAtIndex:0]]
+               informative:@""];
+            }
           }
         }
       }

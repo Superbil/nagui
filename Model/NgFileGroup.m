@@ -130,7 +130,7 @@
     NSFileManager *fileMan = [NSFileManager defaultManager];
     NSArray *newContents = [fileMan directoryContentsAtPath:path];
     if (![contents isEqualToArray:newContents]) {
-      NSLog(@"%@ loaded", path);
+      // NSLog(@"%@ loaded", path);
       contents = newContents;
       NSMutableArray *newFolders = [NSMutableArray arrayWithCapacity:[contents count]];
       NSMutableArray *newFiles = [NSMutableArray arrayWithCapacity:[contents count]];
@@ -156,7 +156,7 @@
         self.files = newFiles;
       }
     } else {
-      NSLog(@"%@ not loaded", path);
+      // NSLog(@"%@ not loaded", path);
     }
   }
 }

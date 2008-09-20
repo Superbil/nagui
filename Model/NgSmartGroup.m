@@ -9,6 +9,7 @@
 #import "NgSmartGroup.h"
 #import "Nagui.h"
 #import "Util.h"
+#import "NgShareManager.h"
 
 @implementation NgSmartGroup
 
@@ -24,6 +25,28 @@
 - (NSImage *)icon
 {
   return nagui.smartFolderImage;
+}
+
+- (NSMutableArray *)files
+{
+  if (!files) {
+    files = [nagui.shareManager.root allFiles];
+  }
+  return files;
+}
+
+- (NSMutableArray *)allFiles
+{
+  return nil;
+}
+
+- (void)reload
+{
+  // if ([nagui showingShare]) {
+  //   NSLog(@"reloading all files");
+  //   self.files = [nagui.shareManager.root allFiles];
+  //   // NSLog(@"%d", [files count]);
+  // }
 }
 
 @end

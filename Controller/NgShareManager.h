@@ -22,6 +22,7 @@
 }
 
 @property(readonly) NSTreeController *shareController;
+@property(readonly) NgGroup *root;
 
 - (IBAction)addFolder:sender;
 - (IBAction)removeFolder:sender;
