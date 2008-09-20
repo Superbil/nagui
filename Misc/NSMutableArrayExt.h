@@ -12,5 +12,6 @@
 @interface NSMutableArray(Nagui)
 
 - (void)addRemove:(NSArray *)array;
+- (void)addObjectsFromArrayUnique:(NSArray *)array;
 
 @end

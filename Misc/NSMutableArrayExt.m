@@ -9,7 +9,7 @@
 #import "NSMutableArrayExt.h"
 
 
-@implementation NSMutableArrayExt
+@implementation NSMutableArray(Nagui)
 
 - (void)addRemove:(NSArray *)array
 {
@@ -22,6 +22,17 @@
     }
     if (!found) {
       ;
+    }
+  }
+}
+
+- (void)addObjectsFromArrayUnique:(NSArray *)array
+{
+  if (array) {
+    for (id obj in array) {
+      if (![self containsObject:obj]) {
+        [self addObject:obj];
+      }
     }
   }
 }
