@@ -16,7 +16,9 @@
 
 @property(assign) NSString *path;
 
-- initPath:(NSString *)path type:(NgGroupType)type;
++ (NgFileGroup *)groupWithPath:(NSString *)path type:(NgGroupType)type;
++ (BOOL)reload:(NSString *)path;
+
 - (void)setIcon;
 - (BOOL)removeFolder;
 

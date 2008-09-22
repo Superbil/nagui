@@ -16,6 +16,8 @@
 #import "NgShareManager.h"
 #import "NSObjectControllerExt.h"
 
+static NSMutableDictionary *fileGroups;
+
 @implementation NgFileGroup
 
 @synthesize path;
@@ -30,12 +32,46 @@
   return self;
 }
 
-- (BOOL)isEqual:other
++ (NgFileGroup *)groupWithPath:(NSString *)path type:(NgGroupType)type
 {
-  if ([other respondsToSelector:@selector(path)]) {
-    return [path isEqualToString:[other path]];
+  if (!fileGroups) {
+    fileGroups = [NSMutableDictionary dictionaryWithCapacity:100];
+  }
+  NgFileGroup *g = [fileGroups objectForKey:path];
+  if (g && g.type == type) {
+    return g;
+  }
+  g = [[NgFileGroup alloc] initPath:path type:type];
+  [fileGroups setObject:g forKey:path];
+  return g;
+}
+
++ (BOOL)reload:(NSString *)path
+{
+  NgFileGroup *g = [fileGroups objectForKey:path];
+  if (g) {
+    NSLog(@"match %@", path);
+    return [g reload];
   }
   return NO;
+}
+
+- (BOOL)isEqual:other
+{
+  if ([other isKindOfClass:[NgFileGroup class]]) {
+    NgFileGroup *g = other;
+    return [path isEqualToString:[g path]] && type == g.type;
+  }
+  return NO;
+}
+
+- (void)setPath:(NSString *)newPath
+{
+  [self willChangeValueForKey:@"url"];
+  [fileGroups removeObjectForKey:path];
+  path = newPath;
+  [fileGroups setObject:self forKey:newPath];
+  [self didChangeValueForKey:@"url"];
 }
 
 - (NSURL *)url
@@ -78,9 +114,7 @@
       [nagui alert:[NSString stringWithFormat:@"Can't rename '%@' to '%@'", displayName, newName]
        informative:@"(Same name exists?)"];
     } else {
-      [self willChangeValueForKey:@"url"];
-      path = newPath;
-      [self didChangeValueForKey:@"url"];
+      [self setPath:newPath];
       name = [[NSFileManager defaultManager] displayNameAtPath:path];
     }
   }
@@ -114,7 +148,8 @@
   while (![fileMan createDirectoryAtPath:newPath attributes:nil]) {
     newPath = [path stringByAppendingFormat:@" %d", i++];
   }
-  path = newPath;
+  
+  [self setPath:newPath];
   name = [[NSFileManager defaultManager] displayNameAtPath:path];
   [self setIcon];
 }
@@ -124,40 +159,40 @@
   return [[nagui.shareManager.shareController selectedObject] isEqual:self];
 }
 
-- (void)reload
+- (BOOL)reload
 {
-  if ([self selected] || !contents) {
-    NSFileManager *fileMan = [NSFileManager defaultManager];
-    NSArray *newContents = [fileMan directoryContentsAtPath:path];
-    if (![contents isEqualToArray:newContents]) {
-      // NSLog(@"%@ loaded", path);
-      contents = newContents;
-      NSMutableArray *newFolders = [NSMutableArray arrayWithCapacity:[contents count]];
-      NSMutableArray *newFiles = [NSMutableArray arrayWithCapacity:[contents count]];
-      NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
-      for (NSString *f in contents) {
-        BOOL isDir = NO;
-        NSString *newPath = [path stringByAppendingPathComponent:f];
-        if ([newPath isInvisible]) {
-          continue;
-        }
-        if ([fileMan fileExistsAtPath:newPath isDirectory:&isDir]) {
-          if (isDir && ![workspace isFilePackageAtPath:newPath]) {
-            [newFolders addObject:[[NgFileGroup alloc] initPath:newPath type:NgAllFiles]];
-          } else {
-            [newFiles addObject:[[NgFile alloc] initPath:newPath]];
-          }
+  NSFileManager *fileMan = [NSFileManager defaultManager];
+  NSArray *newContents = [fileMan directoryContentsAtPath:path];
+  if (![contents isEqualToArray:newContents]) {
+    // NSLog(@"%@ loaded", path);
+    contents = newContents;
+    NSMutableArray *newFolders = [NSMutableArray arrayWithCapacity:[contents count]];
+    NSMutableArray *newFiles = [NSMutableArray arrayWithCapacity:[contents count]];
+    NSWorkspace *workspace = [NSWorkspace sharedWorkspace];
+    for (NSString *f in contents) {
+      BOOL isDir = NO;
+      NSString *newPath = [path stringByAppendingPathComponent:f];
+      if ([newPath isInvisible]) {
+        continue;
+      }
+      if ([fileMan fileExistsAtPath:newPath isDirectory:&isDir]) {
+        if (isDir && ![workspace isFilePackageAtPath:newPath]) {
+          [newFolders addObject:[NgFileGroup groupWithPath:newPath type:NgAllFiles]];
+        } else {
+          [newFiles addObject:[[NgFile alloc] initPath:newPath]];
         }
       }
-      if (![folders isEqualToArray:newFolders]) {
-        self.folders = newFolders;
-      }
-      if (![files isEqualToArray:newFiles]) {
-        self.files = newFiles;
-      }
-    } else {
-      // NSLog(@"%@ not loaded", path);
     }
+    if (![folders isEqualToArray:newFolders]) {
+      self.folders = newFolders;
+    }
+    if (![files isEqualToArray:newFiles]) {
+      self.files = newFiles;
+    }
+    return YES;
+  } else {
+    // NSLog(@"%@ not loaded", path);
+    return NO;
   }
 }
 
@@ -180,7 +215,7 @@
 - (int)addGroup:(NSString *)folderName type:(NgGroupType)t
 {
   NSString *newPath = [path stringByAppendingPathComponent:folderName];
-  NgFileGroup *newFolder = [[NgFileGroup alloc] initPath:newPath type:NgAllFiles];
+  NgFileGroup *newFolder = [NgFileGroup groupWithPath:newPath type:NgAllFiles];
   [newFolder createFolder];
   [self willChangeValueForKey:@"folders"];
   [folders addObject:newFolder];
@@ -201,6 +236,8 @@
     if (error) {
       [nagui alert:[error localizedDescription] informative:@""];
       return NO;
+    } else {
+      [fileGroups removeObjectForKey:path];
     }
   }
   return YES;
