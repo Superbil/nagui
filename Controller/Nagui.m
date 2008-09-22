@@ -44,8 +44,38 @@ Nagui *nagui;
   return YES;
 }
 
+- (void)createDownloadsIni
+{
+  NSFileManager *fileMan = [NSFileManager defaultManager];
+  NSString *mldonkey = [NSString stringWithFormat:@"%@/.mldonkey", NSHomeDirectory()];
+  NSString *downloadsIni = [mldonkey stringByAppendingPathComponent:@"downloads.ini"];
+  BOOL isDir;
+  if (![fileMan fileExistsAtPath:mldonkey isDirectory:&isDir]) {
+    [fileMan createDirectoryAtPath:mldonkey attributes:nil];
+  } else if (!isDir) {
+    [fileMan removeFileAtPath:mldonkey handler:nil];
+    [fileMan createDirectoryAtPath:mldonkey attributes:nil];
+  }
+  if (![fileMan fileExistsAtPath:downloadsIni]) {
+    NSString *str = [NSString stringWithFormat:@" allowed_ips = [\
+         \"127.0.0.1\";]\
+      shared_directories = [\
+      {     dirname = \"%@/Downloads\"\
+         strategy = incoming_files\
+         priority = 0\
+      };\
+      {     dirname = \"%@/Downloads\"\
+         strategy = incoming_directories\
+         priority = 0\
+      };]", NSHomeDirectory(), NSHomeDirectory()];
+    NSData *data = [NSData dataWithBytes:[str UTF8String] length:[str length]];
+    [fileMan createFileAtPath:downloadsIni contents:data attributes:nil];
+  }
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
+  [self createDownloadsIni];
   [mlnetManager autoStart];
 }
 
@@ -106,6 +136,12 @@ Nagui *nagui;
   alertImage = [NSImage imageNamed:@"AlertCautionIcon"];
   smartFolderImage = [NSImage imageNamed:@"SmartFolderIcon"];
   [smartFolderImage setSize:NSMakeSize(16, 16)];
+  
+  // NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+  // [openPanel setCanChooseFiles:YES];
+  // [openPanel setCanChooseDirectories:YES];
+  // [openPanel setAllowsMultipleSelection:YES];
+  // shareView = [openPanel contentView];
 }
 
 - (void)appendString: (NSString *)str
