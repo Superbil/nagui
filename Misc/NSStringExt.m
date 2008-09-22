@@ -60,4 +60,12 @@
   return strcmp(str, otherStr) == 0;
 }
 
+- (NSString *)mldonkeyFullPath
+{
+  if ([self characterAtIndex:0] != '/') {
+    return [NSString stringWithFormat:@"%@/.mldonkey/%@", NSHomeDirectory(), self];
+  }
+  return self;
+}
+
 @end

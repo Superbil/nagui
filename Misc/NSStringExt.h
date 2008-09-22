@@ -16,5 +16,6 @@
 - (BOOL)contains:(NSString *)str;
 - (BOOL)isInvisible;
 - (BOOL)isSameString:(NSString *)str;
+- (NSString *)mldonkeyFullPath;
 
 @end
