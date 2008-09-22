@@ -33,10 +33,11 @@ typedef enum {
 
 - initName:(NSString *)name type:(NgGroupType)type;
 - (NSString *)path;
-- (void)reload;
-- (void)reloadDir:(NSString *)dir;
+- (BOOL)reload;
+// - (void)reloadDir:(NSString *)dir;
 - (int)addGroup:(NSString *)name type:(NgGroupType)type;
 - (BOOL)removeFolder;
 - (NSMutableArray *)allFiles;
+- (BOOL)isSubgroupOf:(NgGroup *)group;
 
 @end

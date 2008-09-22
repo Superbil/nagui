@@ -94,6 +94,14 @@
   return @"";
 }
 
+- (NSMutableArray *)folders
+{
+  if (!folders) {
+    folders = [NSMutableArray arrayWithCapacity:10];
+  }
+  return folders;
+}
+
 - (int)addGroup:(NSString *)str type:(NgGroupType)t
 {
   if (!folders) {
@@ -103,7 +111,7 @@
   if (t == NgSmartAllFiles) {
     group = [[NgSmartGroup alloc] initName:str type:t];
   } else {
-    group = [[NgFileGroup alloc] initPath:str type:t];
+    group = [NgFileGroup groupWithPath:str type:t];
   }
   int index = [folders indexOfObject:group];
   if (index == NSNotFound) {
@@ -129,8 +137,9 @@
   }
 }
 
-- (void)reload
+- (BOOL)reload
 {
+  return NO;
 }
 
 - (BOOL)removeFolder
@@ -150,4 +159,17 @@
   return array;
 }
 
+- (BOOL)isSubgroupOf:(NgGroup *)group
+{
+  NSString *path = [self path];
+  if (path) {
+    NSString *groupPath = [group path];
+    if (groupPath) {
+      if ([path length] > [groupPath length] && [groupPath hasPrefix:path]) {
+        return YES;
+      }
+    }
+  }
+  return NO;
+}
 @end
