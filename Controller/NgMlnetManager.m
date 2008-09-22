@@ -16,6 +16,8 @@
 + (void)initialize
 {
   NSDictionary *defaults = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [NSNumber numberWithBool:YES], @"mlnetAutoStart",
+                            [NSNumber numberWithBool:YES], @"mlnetAutoConnect",
                             @"localhost", @"mlnetHost",
                             @"4001", @"mlnetPort",
                             nil];
