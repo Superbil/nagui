@@ -19,16 +19,19 @@
 #import "NSStringExt.h"
 #import "NgFile.h"
 #import "NSObjectControllerExt.h"
+#import "NSMutableArrayExt.h"
 
 @implementation NgShareManager
 
 @synthesize shareController;
 @synthesize root;
+@synthesize loading;
 
 - (void)awakeFromNib
 {
+  folders = [NSMutableDictionary dictionaryWithCapacity:10];
   root = [[NgGroup alloc] initName:@"" type:NgNone];
-  [root addGroup:@"All Files" type:NgSmartAllFiles];
+  // [root addGroup:@"All Files" type:NgSmartAllFiles];
   [shareController bind:@"contentArray" toObject:root withKeyPath:@"folders" options:nil];
 
   [filesTable setTarget:self];
@@ -41,14 +44,18 @@
   [shareController setSortDescriptors:[NSArray arrayWithObjects:sd1, sd2, nil]];
 }
 
+- (void)unsharePath:(NSString *)path
+{
+  [nagui.protocolHandler sendCommand:[NSString stringWithFormat:@"unshare \"%@\"", path]];
+}
+
 - (void)unshare:sender
 {
   NgGroup *group = [shareController selectedObject];
   if (group) {
     NSString *path = [group path];
     if (path) {
-      NSString *command = [NSString stringWithFormat:@"unshare \"%@\"", path];
-      [nagui.protocolHandler sendCommand:command];
+      [self unsharePath:path];
       [nagui.protocolHandler sendCommand:@"shares"];
     }
   }
@@ -77,6 +84,15 @@
 //  shares = newShares;
 //}
 
+- (void)reloadSmartGroups
+{
+  for (NgGroup *g in [root folders]) {
+    if ([g type] == NgSmartAllFiles) {
+      [g reload];
+    }
+  }
+}
+
 - (void)event:(FSEventStreamEventFlags)event path:(NSString *)path
 {
   int last = [path length] - 1;
@@ -84,7 +100,11 @@
     path = [path substringToIndex:last];
   }
   NSLog(@"event %x in %@", event, path);
-  [root reloadDir:path];
+  if ([NgFileGroup reload:path]) {
+    NSLog(@"reloaded %@", path);
+    [self reloadSmartGroups];
+  }
+  // [root reloadDir:path];
 }
 
 - (void)reloadSourcePath:(NSString *)sourcePath destDir:(NSString *)destDir
@@ -116,36 +136,41 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
 
 - (void)parseSharedFolders:(NSString *)msg
 {
-  [root willChangeValueForKey:@"folders"];
-  [[root folders] removeAllObjects];
-  [root addGroup:@"All Files" type:NgSmartAllFiles];
-  [root didChangeValueForKey:@"folders"];
+  // [root willChangeValueForKey:@"folders"];
+  // [[root folders] removeAllObjects];
+  // [root addGroup:@"All Files" type:NgSmartAllFiles];
+  // [root didChangeValueForKey:@"folders"];
   
   NSArray *lines = [msg componentsSeparatedByString:@"Shared directories:\n"];
   if ([lines count] == 2) {
     lines = [[lines objectAtIndex:1] componentsSeparatedByString:@"\n"];
 
 //    [root willChangeValueForKey:@"folders"];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:[lines count]];
+    [array addObject:[[NgSmartGroup alloc] initName:@"All Files" type:NgSmartAllFiles]];
+    
     for (NSString *line in lines) {
       NSString *trimmed = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
       NSArray *words = [trimmed componentsSeparatedByString:@" "];
       if ([words count] == 3) {
         NSString *path = [words objectAtIndex:1];
         NSString *strategy = [words objectAtIndex:2];
-        int stra = 0;
+        int type = 0;
         if ([strategy isEqualToString:@"all_files"]) {
-          stra = NgAllFiles;
+          type = NgAllFiles;
         } else if ([strategy isEqualToString:@"only_directory"]) {
-          stra = NgOnlyDirectory;
+          type = NgOnlyDirectory;
         } else if ([strategy isEqualToString:@"incoming_files"]) {
 //          incomingFiles = path;
-          stra = NgIncomingFiles;
+          type = NgIncomingFiles;
         } else if ([strategy isEqualToString:@"incoming_directories"]) {
 //          incomingDirectories = path;
-          stra = NgIncomingDirectories;
+          type = NgIncomingDirectories;
         }
-        if (stra) {
-          [root addGroup:path type:stra];
+        if (type) {
+          path = [path mldonkeyFullPath];
+          [array addObject:[NgFileGroup groupWithPath:path type:type]];
+          // [root addGroup:path type:stra];
 //          NSLog(@"%d", [[root folders] count]);
 //          NgFileGroup *group = [self addGroupPath:path type:stra];
 //          if (group) {
@@ -154,10 +179,14 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
         }
       }
     }
+    [root willChangeValueForKey:@"folders"];
+    [[root folders] addAndRemove:array];
+    [root didChangeValueForKey:@"folders"];
 //    [root didChangeValueForKey:@"folders"];
 //    [sharesOutline setNeedsDisplay];
 //    [self removeRedundancy];
 //    [shareController rearrangeObjects];
+    
     [self monitor];
   }
 //  if (!root) {
@@ -246,7 +275,7 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
     [sharesOutline editColumn:0 row:row withEvent:nil select:YES];
     edit = NO;
   }
-  [[shareController selectedObject] reload];
+  // [[shareController selectedObject] reload];
 }
 
 - (void)outlineView:(NSOutlineView *)view willDisplayCell:(NSCell *)cell forTableColumn:(NSTableColumn *)column item:(id)item
@@ -291,15 +320,25 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
     edit = YES;
     [shareController setSelectionIndexPath:[indexPath indexPathByAddingIndex:index]];
   } else {
-    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
-    [openPanel setCanChooseFiles:NO];
-    [openPanel setCanChooseDirectories:YES];
-    [openPanel setAllowsMultipleSelection:NO];
-    [openPanel beginSheetForDirectory:nil file:nil modalForWindow:[nagui window] modalDelegate:self
+    if (!choosePanel) {
+      choosePanel = [NSOpenPanel openPanel];
+      [choosePanel setCanChooseFiles:NO];
+      [choosePanel setCanChooseDirectories:YES];
+      [choosePanel setAllowsMultipleSelection:NO];
+      [choosePanel setCanCreateDirectories:YES];
+      [choosePanel setMessage:@"Choose folder to share."];
+      [choosePanel setPrompt:@"Share"];
+    }
+    [choosePanel beginSheetForDirectory:nil file:nil modalForWindow:[nagui window] modalDelegate:self
                        didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];
   }
 //  [NSApp beginSheet:addFolderWindow modalForWindow:nagui.window modalDelegate:self
 //     didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
+}
+
+- (void)sharePath:(NSString *)path strategy:(NSString *)strategy
+{
+  [nagui.protocolHandler sendCommand:[NSString stringWithFormat:@"share 0 \"%@\" %@", path, strategy]];
 }
 
 - (void)openPanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode contextInfo:(void *)contextInfo
@@ -307,7 +346,7 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
   if (returnCode == NSOKButton) {
     NSArray *array = [panel filenames];
     for (NSString *path in array) {
-      [nagui.protocolHandler sendCommand:[NSString stringWithFormat:@"share \"%@\"", path]];
+      [self sharePath:path strategy:@"all_files"];
     }
     [nagui.protocolHandler sendCommand:@"shares"];
   }
@@ -425,6 +464,59 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
       [file setName:[pasteName stringByAppendingPathExtension:ext]];
     }
   }
+}
+
+- (NSArray *)uniqueFolders
+{
+  NSArray *groups = [root folders];
+  NSMutableArray *uniqueFolders = [NSMutableArray arrayWithCapacity:[groups count]];
+  for (NgGroup *group in groups) {
+    if ([group path]) {
+      BOOL sub = NO;
+      for (NgGroup *g in groups) {
+        if ([group isSubgroupOf:g]) {
+          sub = YES;
+        }
+      }
+      if (!sub) {
+        [uniqueFolders addObject:[group path]];
+      }
+    }
+  }
+  // NSLog(@"%@", uniqueFolders);
+  return uniqueFolders;
+}
+
+- (void)setAs:(NSString *)type
+{
+  NgGroup *group = [shareController selectedObject];
+  if (group) {
+    NSString *path = [group path];
+    if (path) {
+      [self unsharePath:path];
+      [self sharePath:path strategy:type];
+      for (NgGroup *g in [root folders]) {
+        if ([g type] == NgIncomingFiles && [type isEqualToString:@"incoming_files"]) {
+          [self unsharePath:[g path]];
+          [self sharePath:[g path] strategy:@"all_files"];
+        } else if ([g type] == NgIncomingDirectories && [type isEqualToString:@"incoming_directories"]) {
+          [self unsharePath:[g path]];
+          [self sharePath:[g path] strategy:@"all_files"];
+        }
+      }
+      [nagui.protocolHandler sendCommand:@"shares"];
+    }
+  }
+}
+
+- (IBAction)setAsIncomingFiles:sender
+{
+  [self setAs:@"incoming_files"];
+}
+
+- (IBAction)setAsIncomingDirectories:sender
+{
+  [self setAs:@"incoming_directories"];
 }
 
 @end

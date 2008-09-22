@@ -15,20 +15,27 @@
   IBOutlet NSArrayController *sharedFileController;
   IBOutlet id sharesOutline;
   IBOutlet id filesTable;
+  IBOutlet NSProgressIndicator *loading;
   
   NgGroup *root;
   FSEventStreamRef stream;
   BOOL edit;
+  NSOpenPanel *choosePanel;
+  NSMutableDictionary *folders;
 }
 
 @property(readonly) NSTreeController *shareController;
 @property(readonly) NgGroup *root;
+@property(readonly) NSProgressIndicator *loading;
 
 - (IBAction)addFolder:sender;
 - (IBAction)removeFolder:sender;
 - (IBAction)moveToTrash:sender;
 - (IBAction)unshare:sender;
+- (IBAction)setAsIncomingFiles:sender;
+- (IBAction)setAsIncomingDirectories:sender;
 
 - (void)reloadSourcePath:(NSString *)source destDir:(NSString *)dest;
+- (NSArray *)uniqueFolders;
 
 @end
