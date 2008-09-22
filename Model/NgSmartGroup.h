@@ -10,6 +10,9 @@
 #import "NgGroup.h"
 
 @interface NgSmartGroup : NgGroup {
+  // NSMetadataQuery *query;
+  NSLock *lock;
+  BOOL scanning;
 }
 
 @end
