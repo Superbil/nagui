@@ -11,17 +11,20 @@
 
 @implementation NSMutableArray(Nagui)
 
-- (void)addRemove:(NSArray *)array
+- (void)addAndRemove:(NSArray *)array
 {
+  NSMutableIndexSet *removeSet = [NSMutableIndexSet indexSet];
+  int index = 0;
   for (id obj in self) {
-    BOOL found = NO;
-    for (id other in array) {
-      if ([obj isEqual:other]) {
-        found = YES;
-      }
+    if (![array containsObject:obj]) {
+      [removeSet addIndex:index];
     }
-    if (!found) {
-      ;
+    index++;
+  }
+  [self removeObjectsAtIndexes:removeSet];
+  for (id obj in array) {
+    if (![self containsObject:obj]) {
+      [self addObject:obj];
     }
   }
 }

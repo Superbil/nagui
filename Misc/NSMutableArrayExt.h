@@ -2,8 +2,8 @@
 //  NSMutableArrayExt.h
 //  Nagui
 //
-//  Created by Jake Song on 08. 09. 20.
-//  Copyright 2008 XL Games. All rights reserved.
+//  Created by Appledelhi on 08. 09. 20.
+//  Copyright 2008 Appledelhi. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
@@ -11,7 +11,7 @@
 
 @interface NSMutableArray(Nagui)
 
-- (void)addRemove:(NSArray *)array;
+- (void)addAndRemove:(NSArray *)array;
 - (void)addObjectsFromArrayUnique:(NSArray *)array;
 
 @end
