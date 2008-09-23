@@ -29,6 +29,7 @@ enum {
 + (NgQuery *)queryWithKeyword:(NSString *)keyword;
 + (NgQuery *)queryWithKeyword:(NSString *)keyword minSize:(NSString *)size;
 + (NgQuery *)queryWithKeywords:(NSArray *)keywords minSize:(NSString *)size;
++ (NgQuery *)queryWithString:(NSString *)string minSize:(NSString *)size;
 
 - initType:(int)type;
 - initType:(int)type arg1:arg1 arg2:arg2;
