@@ -109,17 +109,17 @@
   if (type == NgAnd || type == NgOr || type == NgHidden) { // AND, OR, Hidden
     int count = [self getInt16];
     while (count-- > 0) {
-      [query append: [self getQuery]];
+      [query append:[self getQuery]];
     }
   } else if (type == NgAndNot) { // ANDNOT
-    [query append: [self getQuery]];
-    [query append: [self getQuery]];
+    [query append:[self getQuery]];
+    [query append:[self getQuery]];
   } else if (type == NgModule) { // Module
-    [query append: [self getString]];
-    [query append: [self getQuery]];
+    [query append:[self getString]];
+    [query append:[self getQuery]];
   } else if (type >= NgKeyword && type <= NgBitRate) {
-    [query append: [self getString]];
-    [query append: [self getString]];
+    [query append:[self getString]];
+    [query append:[self getString]];
   }
   return query;
 }
