@@ -99,9 +99,9 @@
   if ([path characterAtIndex:last] == '/') {
     path = [path substringToIndex:last];
   }
-  NSLog(@"event %x in %@", event, path);
+  // NSLog(@"event %x in %@", event, path);
   if ([NgFileGroup reload:path]) {
-    NSLog(@"reloaded %@", path);
+    // NSLog(@"reloaded %@", path);
     [self reloadSmartGroups];
   }
   // [root reloadDir:path];
