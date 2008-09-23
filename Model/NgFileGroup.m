@@ -50,7 +50,7 @@ static NSMutableDictionary *fileGroups;
 {
   NgFileGroup *g = [fileGroups objectForKey:path];
   if (g) {
-    NSLog(@"match %@", path);
+    // NSLog(@"match %@", path);
     return [g reload];
   }
   return NO;
