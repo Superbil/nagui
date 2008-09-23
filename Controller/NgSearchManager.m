@@ -34,8 +34,7 @@
 - (void)search:sender
 {
   if ([keyword length] > 0) {
-    NSArray *keywords = [keyword componentsSeparatedByString:@" "];
-    NgQuery *query = [NgQuery queryWithKeywords:keywords minSize:fromHuman(minSize)];
+    NgQuery *query = [NgQuery queryWithString:keyword minSize:fromHuman(minSize)];
     NgSearch *search = [NgSearch searchWithId:globalSearchId++ keyword:keyword];
     [nagui.protocolHandler sendSearch:search.searchId query:query];
 
