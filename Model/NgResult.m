@@ -24,6 +24,7 @@
 @synthesize tags;
 @synthesize comment;
 @synthesize time;
+@synthesize downloaded;
 
 - (BOOL)isEqual:other
 {
@@ -129,15 +130,5 @@
 // {
 //   isDownloading = i;
 // }
-
-- (BOOL)downloaded
-{
-  return downloaded || [nagui.transferManager isDownloaded:fileIds];
-}
-
-- (void)setDownloaded:(BOOL)d
-{
-  downloaded = d;
-}
 
 @end
