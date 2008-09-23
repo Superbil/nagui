@@ -19,7 +19,6 @@
   NSArray *uploads;
   NSArray *uploading;
   NSMutableDictionary *fileInfos;   // key = fileId
-  NSMutableDictionary *fileMd4s;    // key = md4
 //  NSMutableArray *sharedFiles;
   NSMutableArray *shares;
   NSMutableDictionary *clients;
@@ -53,7 +52,6 @@
 - (void)addDownload:(NgFileInfo *)fileInfo;
 - (void)addPending:(int)fileId;
 - (BOOL)isDownloading:(NSArray *)fileIds;
-- (BOOL)isDownloaded:(NSArray *)fileIds;
 //- (void)addSharedFile:(NgSharedFile *)sharedFile;
 
 - (void)updateClient:(NgClientInfo *)clientInfo;

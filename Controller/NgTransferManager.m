@@ -23,10 +23,8 @@
 @synthesize uploads;
 //@synthesize sharedFiles;
 //@synthesize shares;
-//@synthesize downloadRate;
 @synthesize downloadCritical;
 @synthesize downloadWarning;
-//@synthesize uploadRate;
 @synthesize uploadCritical;
 @synthesize uploadWarning;
 
@@ -35,21 +33,14 @@
   downloads = [NSMutableArray arrayWithCapacity:20];
   uploads = [NSMutableArray arrayWithCapacity:20];
   fileInfos = [NSMutableDictionary dictionaryWithCapacity:40];
-  fileMd4s = [NSMutableDictionary dictionaryWithCapacity:40];
 //  sharedFiles = [NSMutableArray arrayWithCapacity:1000];
   shares = [NSMutableArray arrayWithCapacity:1000];
   clients = [NSMutableDictionary dictionaryWithCapacity:100];
-//  downloadMax = 100000;
-//  uploadMin = 0;
-//  uploadMax = 50000;
-//  uploadCritical = uploadMax * 9/10;
-//  uploadWarning = uploadMax * 7/10;
 }
 
 - (void)addFileInfo:(NgFileInfo *)fileInfo
 {
   [fileInfos setObject:fileInfo forKey:[NSNumber numberWithInt:fileInfo.fileId]];
-  [fileMd4s setObject:fileInfo forKey:fileInfo.md4];
 }
 
 - (void)updateDownload:(int)fileId downloaded:(int64_t)downloaded speed:(float)speed
@@ -65,7 +56,6 @@
 - (void)addDownload:(NgFileInfo *)fileInfo
 {
   NSUInteger index = [downloads indexOfObject:fileInfo];
-  [fileMd4s setObject:fileInfo forKey:fileInfo.md4];
   [self willChangeValueForKey:@"downloads"];
   if (index == NSNotFound) {
     [downloads addObject:fileInfo];
@@ -94,16 +84,6 @@
   return NO;
 }
 
-- (BOOL)isDownloaded:(NSArray *)md4s
-{
-  for (NSData *md4 in md4s) {
-    if ([fileMd4s objectForKey:md4]) {
-      return YES;
-    }
-  }
-  return NO;
-}
-
 - (IBAction)cancelDownload:sender
 {
   NgFileInfo *f = [downloadController selectedObject];
@@ -111,7 +91,6 @@
     [nagui.protocolHandler sendRemoveDownload:f.fileId];
     [downloadController removeObject:f];
     [fileInfos removeObjectForKey:[NSNumber numberWithInt:f.fileId]];
-    [fileMd4s removeObjectForKey:f.md4];
   }
 }
 
@@ -230,12 +209,8 @@
 {
   if ([option.name isEqualToString:@"max_hard_upload_rate"]) {
     uploadMax = [option.value intValue] * 1000;
-//    self.uploadCritical = uploadMax * 9/10;
-//    uploadWarning = uploadMax * 7/10;
   } else if ([option.name isEqualToString:@"max_hard_download_rate"]) {
     downloadMax = [option.value intValue] * 1000;
-//    self.downloadCritical = downloadMax * 9/10;
-//    downloadWarning = downloadMax * 7/10;
   }
 }
 
