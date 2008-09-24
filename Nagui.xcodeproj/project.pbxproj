@@ -49,6 +49,7 @@
 		1886E2C70E69D01D006073A4 /* NgHostState.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886E2C60E69D01D006073A4 /* NgHostState.m */; };
 		1886E3020E69D4DD006073A4 /* NgClientInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886E3010E69D4DD006073A4 /* NgClientInfo.m */; };
 		1886E3530E6A60A3006073A4 /* NgStateTrans.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886E3520E6A60A3006073A4 /* NgStateTrans.m */; };
+		189557E70E8A8DE20021B6A6 /* NgUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 189557E60E8A8DE20021B6A6 /* NgUpdater.m */; };
 		1895A2470E7719B4005EB393 /* donkey-256x256.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1895A2460E7719B4005EB393 /* donkey-256x256.icns */; };
 		18D6CEE30E611322008014F5 /* NgSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6CEE20E611322008014F5 /* NgSearch.m */; };
 		18D6CF4F0E61A976008014F5 /* NgTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6CF4E0E61A976008014F5 /* NgTag.m */; };
@@ -167,6 +168,8 @@
 		1886E3010E69D4DD006073A4 /* NgClientInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgClientInfo.m; sourceTree = "<group>"; };
 		1886E3510E6A60A3006073A4 /* NgStateTrans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgStateTrans.h; sourceTree = "<group>"; };
 		1886E3520E6A60A3006073A4 /* NgStateTrans.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgStateTrans.m; sourceTree = "<group>"; };
+		189557E50E8A8DE20021B6A6 /* NgUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgUpdater.h; sourceTree = "<group>"; };
+		189557E60E8A8DE20021B6A6 /* NgUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgUpdater.m; sourceTree = "<group>"; };
 		1895A2460E7719B4005EB393 /* donkey-256x256.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "donkey-256x256.icns"; sourceTree = "<group>"; };
 		18D6CEE10E611322008014F5 /* NgSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgSearch.h; sourceTree = "<group>"; };
 		18D6CEE20E611322008014F5 /* NgSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgSearch.m; sourceTree = "<group>"; };
@@ -384,6 +387,8 @@
 				18DB8D1F0E7DA39400B9CB75 /* NgTaskManager.m */,
 				186288820E853173000D8B85 /* NgFileController.h */,
 				186288830E853173000D8B85 /* NgFileController.m */,
+				189557E50E8A8DE20021B6A6 /* NgUpdater.h */,
+				189557E60E8A8DE20021B6A6 /* NgUpdater.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -630,6 +635,7 @@
 				18308B080E840257001BFCC9 /* NSObjectControllerExt.m in Sources */,
 				186288840E853173000D8B85 /* NgFileController.m in Sources */,
 				186288B10E854419000D8B85 /* NSMutableArrayExt.m in Sources */,
+				189557E70E8A8DE20021B6A6 /* NgUpdater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
