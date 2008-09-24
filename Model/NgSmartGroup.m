@@ -25,7 +25,6 @@ enum {
 - initName:(NSString *)n type:(NgGroupType)t
 {
   self = [super initName:n type:t];
-//  icon = nagui.smartFolderImage;
   lock = [[NSLock alloc] init];
   return self;
 }
@@ -121,14 +120,9 @@ enum {
 
 - (BOOL)reload
 {
-  NSLog(@"reloading smart group");
+  //NSLog(@"reloading smart group");
   self.files = nil;
   return YES;
-  // if ([nagui showingShare]) {
-  //   NSLog(@"reloading all files");
-  //   self.files = [nagui.shareManager.root allFiles];
-  //   // NSLog(@"%d", [files count]);
-  // }
 }
 
 @end
