@@ -15,6 +15,7 @@
 #import "NgProgressCell.h"
 #import "NgFolderManager.h"
 #import "NgMlnetManager.h"
+#import "NgUpdater.h"
 
 Nagui *nagui;
 
@@ -76,6 +77,8 @@ Nagui *nagui;
 - (void)applicationDidFinishLaunching:(NSNotification *)notification
 {
   [self createDownloadsIni];
+  updater = [[NgUpdater alloc] init];
+  [updater checkUpdate];
   [mlnetManager autoStart];
 }
 

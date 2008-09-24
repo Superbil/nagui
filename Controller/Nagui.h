@@ -17,6 +17,7 @@
 @class NgMlnetManager;
 @class NgShareManager;
 @class NgTaskManager;
+@class NgUpdater;
 
 @interface Nagui : NSWindowController {
   IBOutlet id contentView;
@@ -44,6 +45,7 @@
   IBOutlet NgMlnetManager *mlnetManager;
   
   NgProtocolHandler *protocolHandler;
+  NgUpdater *updater;
   NSView *currentView;
   id currentManager;
   NSAlert *alert;
