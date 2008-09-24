@@ -19,6 +19,7 @@
   NSMutableDictionary *results;
   NSString *minSize;
   NSString *keyword;
+  NSString *searchFieldTooltip;
 //  NSMutableDictionary *indiRows;
 }
 
