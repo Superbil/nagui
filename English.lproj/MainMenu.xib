@@ -5136,7 +5136,7 @@
 											<int key="NSMaximumRecents">255</int>
 										</object>
 									</object>
-									<object class="NSProgressIndicator" id="953826951">
+									<object class="NSProgressIndicator" id="67889878">
 										<reference key="NSNextResponder" ref="533023485"/>
 										<int key="NSvFlags">1325</int>
 										<object class="NSPSMatrix" key="NSDrawMatrix"/>
@@ -7662,7 +7662,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">loading</string>
 						<reference key="source" ref="876172283"/>
-						<reference key="destination" ref="953826951"/>
+						<reference key="destination" ref="67889878"/>
 					</object>
 					<int key="connectionID">1449</int>
 				</object>
@@ -7681,6 +7681,26 @@
 						<reference key="destination" ref="704909910"/>
 					</object>
 					<int key="connectionID">1451</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">toolTip: searchFieldTooltip</string>
+						<reference key="source" ref="702320025"/>
+						<reference key="destination" ref="542926888"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="702320025"/>
+							<reference key="NSDestination" ref="542926888"/>
+							<string key="NSLabel">toolTip: searchFieldTooltip</string>
+							<string key="NSBinding">toolTip</string>
+							<string key="NSKeyPath">searchFieldTooltip</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSNullPlaceholder</string>
+								<string key="NS.object.0">Words with - prefix are excluded from results</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">1456</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -10461,7 +10481,7 @@
 							<reference ref="929416843"/>
 							<reference ref="187961326"/>
 							<reference ref="163540577"/>
-							<reference ref="953826951"/>
+							<reference ref="67889878"/>
 						</object>
 						<reference key="parent" ref="104625316"/>
 					</object>
@@ -10605,7 +10625,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">1448</int>
-						<reference key="object" ref="953826951"/>
+						<reference key="object" ref="67889878"/>
 						<reference key="parent" ref="533023485"/>
 					</object>
 				</object>
@@ -11605,7 +11625,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">1451</int>
+			<int key="maxID">1456</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
