@@ -16,7 +16,7 @@
 #import "NgShareManager.h"
 #import "NSObjectControllerExt.h"
 
-static NSMutableDictionary *fileGroups;
+static NSMapTable *fileGroups;
 
 @implementation NgFileGroup
 
@@ -35,7 +35,7 @@ static NSMutableDictionary *fileGroups;
 + (NgFileGroup *)groupWithPath:(NSString *)path type:(NgGroupType)type
 {
   if (!fileGroups) {
-    fileGroups = [NSMutableDictionary dictionaryWithCapacity:100];
+    fileGroups = [NSMapTable mapTableWithStrongToWeakObjects];
   }
   NgFileGroup *g = [fileGroups objectForKey:path];
   if (g && g.type == type) {
@@ -59,8 +59,7 @@ static NSMutableDictionary *fileGroups;
 - (BOOL)isEqual:other
 {
   if ([other isKindOfClass:[NgFileGroup class]]) {
-    NgFileGroup *g = other;
-    return [path isEqualToString:[g path]] && type == g.type;
+    return [path isEqualToString:[other path]] && type == [(NgFileGroup *)other type];
   }
   return NO;
 }
