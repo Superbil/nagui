@@ -124,18 +124,18 @@
   return index;
 }
 
-- (void)reloadDir:(NSString *)dir
-{
-  NSString *p = [self path];
-  if (!p || [p isEqualToString:dir]) {
-    [self reload];
-  }
-  if (!p || [p length] < [dir length]) {
-    for (NgGroup *g in folders) {
-      [g reloadDir:dir];
-    }
-  }
-}
+//- (void)reloadDir:(NSString *)dir
+//{
+//  NSString *p = [self path];
+//  if (!p || [p isEqualToString:dir]) {
+//    [self reload];
+//  }
+//  if (!p || [p length] < [dir length]) {
+//    for (NgGroup *g in folders) {
+//      [g reloadDir:dir];
+//    }
+//  }
+//}
 
 - (BOOL)reload
 {
