@@ -14,6 +14,7 @@
 - (NSString *)beforeLastPathComponent;
 - (BOOL)isSameDir:(NSString *)dir;
 - (BOOL)contains:(NSString *)str;
+- (BOOL)containsCaseInsensitive:(NSString *)str;
 - (BOOL)isInvisible;
 - (BOOL)isSameString:(NSString *)str;
 - (NSString *)mldonkeyFullPath;

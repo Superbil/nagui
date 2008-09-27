@@ -37,6 +37,15 @@
   return NO;
 }
 
+- (BOOL)containsCaseInsensitive:(NSString *)str
+{
+  if (str) {
+    NSRange r = [self rangeOfString:str options:NSCaseInsensitiveSearch];
+    return r.location != NSNotFound;
+  }
+  return NO;
+}
+
 - (BOOL)isInvisible
 {
   BOOL isInvisible = NO;
