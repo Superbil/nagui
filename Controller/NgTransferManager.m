@@ -34,22 +34,22 @@
   uploads = [NSMutableArray arrayWithCapacity:20];
   fileInfos = [NSMutableDictionary dictionaryWithCapacity:40];
 //  sharedFiles = [NSMutableArray arrayWithCapacity:1000];
-  shares = [NSMutableArray arrayWithCapacity:1000];
+//  shares = [NSMutableArray arrayWithCapacity:1000];
   clients = [NSMutableDictionary dictionaryWithCapacity:100];
 }
 
 - (void)addFileInfo:(NgFileInfo *)fileInfo
 {
-  [fileInfos setObject:fileInfo forKey:[NSNumber numberWithInt:fileInfo.fileId]];
+  [fileInfos setObject:fileInfo forKey:fileInfo.fileId];
 }
 
-- (void)updateDownload:(int)fileId downloaded:(int64_t)downloaded speed:(float)speed
+- (void)updateDownload:(NSNumber *)fileId downloaded:(int64_t)downloaded speed:(float)speed
 {
-  NgFileInfo *fileInfo = [fileInfos objectForKey:[NSNumber numberWithInt:fileId]];
+  NgFileInfo *fileInfo = [fileInfos objectForKey:fileId];
   if (fileInfo) {
     fileInfo.downloadedSize = downloaded;
     fileInfo.downloadSpeed = speed;
-    [self addDownload: fileInfo];
+    [self addDownload:fileInfo];
   }
 }
 
@@ -67,10 +67,10 @@
   [self didChangeValueForKey:@"downloads"];
 }
 
-- (void)addPending:(int)fileId
-{
-  [self addDownload: [fileInfos objectForKey:[NSNumber numberWithInt:fileId]]];
-}
+//- (void)addPending:(int)fileId
+//{
+//  [self addDownload:[fileInfos objectForKey:[NSNumber numberWithInt:fileId]]];
+//}
 
 - (BOOL)isDownloading:(NSArray *)md4s
 {
@@ -90,19 +90,25 @@
   if (f) {
     [nagui.protocolHandler sendRemoveDownload:f.fileId];
     [downloadController removeObject:f];
-    [fileInfos removeObjectForKey:[NSNumber numberWithInt:f.fileId]];
+    [fileInfos removeObjectForKey:f.fileId];
   }
 }
 
 - (IBAction)clear:sender
 {
   NSMutableArray *new = [NSMutableArray arrayWithCapacity:[downloads count]];
+  NSMutableArray *remove = [NSMutableArray arrayWithCapacity:[downloads count]];
   for (NgFileInfo *fi in downloads) {
     if (fi.downloadedSize < fi.fileSize) {
       [new addObject:fi];
+    } else {
+      [remove addObject:fi];
     }
   }
   self.downloads = new;
+  for (NgFileInfo *fi in remove) {
+    [fileInfos removeObjectForKey:fi.fileId];
+  }
 }
 
 //- (void)addSharedFile:(NgSharedFile *)sharedFile
@@ -118,9 +124,9 @@
   // 0:not connected, 1:connecting, 6:new host, 7:remove host, 8:black listed, 9:not connected
   BOOL remove = (s == 0 || s == 7 || s == 8 || s == 9);
   if (remove) {
-    [clients removeObjectForKey:[NSNumber numberWithInt:clientInfo.clientId]];
+    [clients removeObjectForKey:clientInfo.clientId];
   } else {
-    [clients setObject:clientInfo forKey:[NSNumber numberWithInt:clientInfo.clientId]];
+    [clients setObject:clientInfo forKey:clientInfo.clientId];
   }
 //  NSLog(@"clients = %d", [clients count]);
 }

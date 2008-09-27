@@ -20,7 +20,7 @@
   NSArray *uploading;
   NSMutableDictionary *fileInfos;   // key = fileId
 //  NSMutableArray *sharedFiles;
-  NSMutableArray *shares;
+//  NSMutableArray *shares;
   NSMutableDictionary *clients;
   int downloadRate;
   int uploadRate;
@@ -48,9 +48,9 @@
 - (IBAction)clear:sender;
 
 - (void)addFileInfo:(NgFileInfo *)fileInfo;
-- (void)updateDownload:(int)fileId downloaded:(int64_t)downloaded speed:(float)speed;
+- (void)updateDownload:(NSNumber *)fileId downloaded:(int64_t)downloaded speed:(float)speed;
 - (void)addDownload:(NgFileInfo *)fileInfo;
-- (void)addPending:(int)fileId;
+//- (void)addPending:(int)fileId;
 - (BOOL)isDownloading:(NSArray *)fileIds;
 //- (void)addSharedFile:(NgSharedFile *)sharedFile;
 
