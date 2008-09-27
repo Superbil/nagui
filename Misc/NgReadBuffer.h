@@ -43,6 +43,7 @@ enum ReadState {
 - (int)getFileState;
 - (NSData *)getChunks;
 - (float)getFloat;
+- (NSNumber *)getIntNumber;
 
 - (NgHostState *)getState;
 - (NgQuery *)getQuery;

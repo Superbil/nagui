@@ -233,12 +233,17 @@
   return i + f / 100.0;
 }
 
+- (NSNumber *)getIntNumber
+{
+  return [NSNumber numberWithInt:[self getInt]];
+}
+
 - (NSArray *)getIntList
 {
   int count = [self getInt16];
   NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
   while (count-- > 0) {
-    [array addObject:[NSNumber numberWithInt:[self getInt]]];
+    [array addObject:[self getIntNumber]];
   }
   return array;
 }
@@ -411,7 +416,7 @@
 - (NgFileInfo *)getFileInfo
 {
   NgFileInfo *fileInfo = [[NgFileInfo alloc] init];
-  fileInfo.fileId = [self getInt];
+  fileInfo.fileId = [self getIntNumber];
   // NSLog(@"%d", fileInfo.fileId);
   int networkId = [self getInt];
   fileInfo.fileNames = [self getStringList];
