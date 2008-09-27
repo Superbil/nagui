@@ -31,7 +31,7 @@
 - (IBAction)download:sender;
 
 - (void)addResult:result;
-- (void)associateResult:(int)resultId toSearch:(int)searchId;
+- (void)associateResult:(NSNumber *)resultId toSearch:(int)searchId;
 //- (void)resetIndicators;
 - (void)refresh;
 

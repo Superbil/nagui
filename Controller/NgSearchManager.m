@@ -48,12 +48,12 @@
 
 - (void)addResult:(NgResult *)result
 {
-  [results setObject:result forKey:[NSNumber numberWithInt:result.resultId]];
+  [results setObject:result forKey:result.resultId];
 }
 
-- (void)associateResult:(int)resultId toSearch:(int)searchId
+- (void)associateResult:(NSNumber *)resultId toSearch:(int)searchId
 {
-  NgResult *result = [results objectForKey:[NSNumber numberWithInt:resultId]];
+  NgResult *result = [results objectForKey:resultId];
   if (result) {
     for (NgSearch *search in searches) {
       if (search.searchId == searchId) {
