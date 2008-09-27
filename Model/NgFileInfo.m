@@ -24,7 +24,7 @@
 - (BOOL)isEqual:other
 {
   if ([other respondsToSelector:@selector(fileId)]) {
-    return fileId == [other fileId];
+    return [fileId isEqual:[other fileId]];
   }
   return NO;
 }

@@ -10,7 +10,7 @@
 
 
 @interface NgFileInfo : NSObject {
-  int fileId;
+  NSNumber *fileId;
   NSArray *fileNames;
   NSString *fileName;
   NSData *md4;
@@ -27,7 +27,7 @@
   NSImage *image;
 }
 
-@property int fileId;
+@property(assign) NSNumber *fileId;
 @property(assign) NSArray *fileNames;
 @property(assign) NSString *fileName;
 @property(assign) NSData *md4;
