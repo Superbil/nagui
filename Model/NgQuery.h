@@ -35,5 +35,6 @@ enum {
 - initType:(int)type arg1:arg1 arg2:arg2;
 - (void)append:arg;
 - (void)writeTo:(NgWriteBuffer *)buffer;
+- (NSString *)keyword;
 
 @end

@@ -18,5 +18,6 @@
 - (BOOL)isInvisible;
 - (BOOL)isSameString:(NSString *)str;
 - (NSString *)mldonkeyFullPath;
+- (NSString *)separate:(NSString *)str prefix:(NSString *)prefix;
 
 @end

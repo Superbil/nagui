@@ -8,6 +8,7 @@
 
 #import "NgQuery.h"
 #import "NgWriteBuffer.h"
+#import "NSStringExt.h"
 
 @implementation NgQuery
 
@@ -97,6 +98,31 @@
 - (void)append:arg
 {
   [args addObject:arg];
+}
+
+- (NSString *)keyword
+{
+  if (type == NgKeyword) {
+    return [args objectAtIndex:1];
+  } else if (type == NgAnd || type == NgOr) {
+    NSMutableString *keyword = [NSMutableString string];
+    for (NgQuery *q in args) {
+      NSString *k = [q keyword];
+      if ([k length] > 0) {
+        if ([keyword length] > 0) {
+          [keyword appendString:@" "];
+        }          
+        [keyword appendString:k];
+      }
+    }
+    return keyword;
+  } else if (type == NgAndNot) {
+    NSString *k1 = [[args objectAtIndex:0] keyword];
+    NSString *k2 = [[args objectAtIndex:1] keyword];
+    return [NSString stringWithFormat:@"%@ %@", k1, [k2 separate:@" " prefix:@"-"]];
+  } else {
+    return @"";
+  }
 }
 
 - description

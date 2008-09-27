@@ -43,5 +43,6 @@ enum {
 - (void)sendGetUploaders;
 - (void)sendSetOption:(NSString *)option value:(NSString *)value;
 - (void)sendCommand:(NSString *)command;
+- (void)sendGetSearches;
 
 @end

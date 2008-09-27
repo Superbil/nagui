@@ -84,6 +84,7 @@ Nagui *nagui;
 
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
+  [searchManager forgetSearches];
   [mlnetManager autoQuit];
 }
 

@@ -15,6 +15,7 @@
 #import "NgResult.h"
 #import "Util.h"
 #import "NSObjectControllerExt.h"
+#import "NgQuery.h"
 
 @implementation NgSearchManager
 
@@ -44,6 +45,17 @@
     
     [searchController setSelectionIndex:[searches count] - 1];
   }
+}
+
+- (void)addSearchId:(int)searchId query:(NSString *)query
+{
+  if (globalSearchId <= searchId) {
+    globalSearchId = searchId + 1;
+  }
+  NgSearch *search = [NgSearch searchWithId:searchId keyword:query];
+  [self willChangeValueForKey:@"searches"];
+  [searches addObject:search];
+  [self didChangeValueForKey:@"searches"];
 }
 
 - (void)addResult:(NgResult *)result
@@ -80,7 +92,6 @@
       [self willChangeValueForKey:@"searches"];
       [searches removeObjectAtIndex:row];
       [self didChangeValueForKey:@"searches"];
-      
     }
   }
 }
@@ -165,6 +176,13 @@
 - (void)refresh
 {
   [resultTable setNeedsDisplay];
+}
+
+- (void)forgetSearches
+{
+  while (--globalSearchId >= 0) {
+    [nagui.protocolHandler sendCloseSearch:globalSearchId];
+  }
 }
 
 @end

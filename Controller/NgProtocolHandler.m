@@ -52,11 +52,12 @@
   [readBuffer getInt];  // max op code
   [readBuffer getInt];  // max op code accepted
 //  [nagui log:@"protocol = %d opcode = %d accepted = %d\n", maxProtocol, maxOpcode, maxOpcodeAccepted];
-  [self sendProtocolVersion: 41];
-  [self sendPassword: @"" login: @"admin"];
+  [self sendProtocolVersion:41];
+  [self sendPassword:@"" login: @"admin"];
   [self sendGetDownloadingFiles];
   [self sendGetDownloadedFiles];
   [self sendCommand:@"shares"];
+//  [self sendGetSearches];
 }
 
 - (void)networkInfoProtocol
@@ -326,6 +327,19 @@
   [nagui.transferManager client:clientId message:msg];
 }
 
+- (void)searchProtocol
+{
+//  int searchId = [readBuffer getInt];    // search number
+//  [readBuffer getString];  // search query
+//  [readBuffer getInt];    // max hits
+//  [readBuffer getInt8];   // search type
+//  [readBuffer getInt];    // network
+  // forget old searches
+  
+//  [self sendCloseSearch:searchId];
+//  [nagui.searchManager addSearchId:searchId query:query];
+}
+
 - (void)processPacket
 {
   int op = [readBuffer getInt16];
@@ -411,6 +425,9 @@
       break;
     case 56:
       [self pendingProtocol];
+      break;
+    case 57:
+      [self searchProtocol];
       break;
     case 59:
       [self statsProtocol];
@@ -543,6 +560,12 @@
 {
   [writeBuffer putInt16:29];
   [writeBuffer putString:command];
+  [writeBuffer send];
+}
+
+- (void)sendGetSearches
+{
+  [writeBuffer putInt16:59];
   [writeBuffer send];
 }
 

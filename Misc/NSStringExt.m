@@ -77,4 +77,14 @@
   return self;
 }
 
+- (NSString *)separate:(NSString *)str prefix:(NSString *)prefix
+{
+  NSArray *array = [self componentsSeparatedByString:str];
+  NSMutableArray *modified = [NSMutableArray arrayWithCapacity:[array count]];
+  for (NSString *word in array) {
+    [modified addObject:[NSString stringWithFormat:@"%@%@", prefix, word]];
+  }
+  return [modified componentsJoinedByString:str];
+}
+
 @end

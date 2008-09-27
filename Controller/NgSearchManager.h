@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @class NgResult;
+@class NgQuery;
 
 @interface NgSearchManager : NSObject {
   IBOutlet NSArrayController *searchController;
@@ -30,9 +31,11 @@
 - (IBAction)moreResults:sender;
 - (IBAction)download:sender;
 
+- (void)addSearchId:(int)searchId query:(NSString *)query;
 - (void)addResult:result;
 - (void)associateResult:(NSNumber *)resultId toSearch:(int)searchId;
 //- (void)resetIndicators;
 - (void)refresh;
+- (void)forgetSearches;
 
 @end

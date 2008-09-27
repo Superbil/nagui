@@ -4593,6 +4593,8 @@
 																	<reference key="NSBackgroundColor" ref="609917633"/>
 																	<reference key="NSTextColor" ref="386841571"/>
 																</object>
+																<int key="NSResizingMask">1</int>
+																<bool key="NSIsResizeable">YES</bool>
 																<bool key="NSIsEditable">YES</bool>
 																<reference key="NSTableView" ref="534432981"/>
 															</object>
@@ -5136,7 +5138,7 @@
 											<int key="NSMaximumRecents">255</int>
 										</object>
 									</object>
-									<object class="NSProgressIndicator" id="67889878">
+									<object class="NSProgressIndicator" id="427671807">
 										<reference key="NSNextResponder" ref="533023485"/>
 										<int key="NSvFlags">1325</int>
 										<object class="NSPSMatrix" key="NSDrawMatrix"/>
@@ -7662,7 +7664,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">loading</string>
 						<reference key="source" ref="876172283"/>
-						<reference key="destination" ref="67889878"/>
+						<reference key="destination" ref="427671807"/>
 					</object>
 					<int key="connectionID">1449</int>
 				</object>
@@ -10481,7 +10483,7 @@
 							<reference ref="929416843"/>
 							<reference ref="187961326"/>
 							<reference ref="163540577"/>
-							<reference ref="67889878"/>
+							<reference ref="427671807"/>
 						</object>
 						<reference key="parent" ref="104625316"/>
 					</object>
@@ -10625,7 +10627,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">1448</int>
-						<reference key="object" ref="67889878"/>
+						<reference key="object" ref="427671807"/>
 						<reference key="parent" ref="533023485"/>
 					</object>
 				</object>
