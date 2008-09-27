@@ -22,13 +22,10 @@
 
 - (BOOL)isEqual:other
 {
-  if ([other respondsToSelector:@selector(serverId)]) {
-    if (serverId == [other serverId]) {
+  if ([other isKindOfClass:[NgServerInfo class]]) {
+    if (serverId == [other serverId] || [addr isEqual:[other addr]]) {
       return YES;
     }
-  }
-  if ([other respondsToSelector:@selector(addr)]) {
-    return [addr isEqual:[other addr]];
   }
   return NO;
 }
@@ -40,4 +37,5 @@
   }
   return [NSColor blackColor];
 }
+
 @end
