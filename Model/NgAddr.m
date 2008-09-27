@@ -30,7 +30,7 @@
 
 - (BOOL)isEqual:other
 {
-  if ([other respondsToSelector:@selector(ip)] && [other respondsToSelector:@selector(inetPort)]) {
+  if ([other isKindOfClass:[NgAddr class]]) {
     return ip == [other ip] && inetPort == [other inetPort];
   }
   return NO;
