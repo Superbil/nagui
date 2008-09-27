@@ -11,7 +11,7 @@
 @class NgTag;
 
 @interface NgResult : NSObject {
-  int resultId;
+  NSNumber *resultId;
   int networkId;
   NSArray *fileNames;
   NSArray *fileIds;
@@ -31,7 +31,7 @@
   // BOOL isDownloading;
 }
 
-@property int resultId;
+@property(assign) NSNumber *resultId;
 @property int networkId;
 @property(assign) NSArray *fileNames;
 @property(assign) NSArray *fileIds;

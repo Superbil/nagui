@@ -29,7 +29,7 @@
 - (BOOL)isEqual:other
 {
   if ([other respondsToSelector:@selector(resultId)]) {
-    return resultId == [other resultId];
+    return [resultId isEqual:[other resultId]];
   }
   return NO;
 }
