@@ -36,10 +36,10 @@ enum {
 - (void)sendSearch:(int)searchId query:(NgQuery *)keyword;
 - (void)sendCloseSearch:(int)searchId;
 - (void)sendExtendSearch;
-- (void)sendDownload:(NSArray*)fileNames resultId:(int)resultId;
+- (void)sendDownload:(NSArray*)fileNames resultId:(NSNumber *)resultId;
 - (void)sendGetDownloadingFiles;
 - (void)sendGetDownloadedFiles;
-- (void)sendRemoveDownload:(int)fileId;
+- (void)sendRemoveDownload:(NSNumber *)fileId;
 - (void)sendGetUploaders;
 - (void)sendSetOption:(NSString *)option value:(NSString *)value;
 - (void)sendCommand:(NSString *)command;

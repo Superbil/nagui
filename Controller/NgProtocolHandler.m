@@ -125,7 +125,7 @@
 - (void)clientInfoProtocol
 {
   NgClientInfo *clientInfo = [[NgClientInfo alloc] init];
-  clientInfo.clientId = [readBuffer getInt];  // client id
+  clientInfo.clientId = [readBuffer getIntNumber];  // client id
   [readBuffer getInt];  // network id
   [readBuffer getClientKind];
   clientInfo.state = [readBuffer getState];  // connection state
@@ -232,7 +232,7 @@
 - (void)searchResultProtocol
 {
   int searchId = [readBuffer getInt];
-  int resultId = [readBuffer getInt];
+  NSNumber *resultId = [readBuffer getIntNumber];
   [nagui.searchManager associateResult:resultId toSearch:searchId];
 }
 
@@ -245,7 +245,7 @@
 - (void)resultInfoProtocol
 {
   NgResult *result = [[NgResult alloc] init];
-  result.resultId = [readBuffer getInt];
+  result.resultId = [readBuffer getIntNumber];
   result.networkId = [readBuffer getInt];
   result.fileNames = [readBuffer getStringList];
   result.fileIds = md4sFromStrings([readBuffer getStringList]);
@@ -270,7 +270,7 @@
 
 - (void)fileDownloadUpdateProtocol
 {
-  int fileId = [readBuffer getInt];
+  NSNumber *fileId = [readBuffer getIntNumber];
   int64_t downloaded = [readBuffer getInt64];
   float speed = [readBuffer getFloat];
   [readBuffer getInt];
@@ -300,8 +300,7 @@
   int count = [readBuffer getInt16];
   NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
   while (count-- > 0) {
-    int clientId = [readBuffer getInt];   // file id
-    [array addObject:[NSNumber numberWithInt:clientId]];
+    [array addObject:[readBuffer getIntNumber]];  // client id
   }
   [nagui.transferManager setPending:array];
 }
@@ -315,8 +314,7 @@
   int count = [readBuffer getInt16];
   NSMutableArray *array = [NSMutableArray arrayWithCapacity:count];
   while (count-- > 0) {
-    int clientId = [readBuffer getInt];
-    [array addObject:[NSNumber numberWithInt:clientId]];
+    [array addObject:[readBuffer getIntNumber]];
   }
   [nagui.transferManager setUploaders:array];
 }
@@ -498,11 +496,11 @@
   [writeBuffer send];
 }
 
-- (void)sendDownload:(NSArray *)fileNames resultId:(int)resultId
+- (void)sendDownload:(NSArray *)fileNames resultId:(NSNumber *)resultId
 {
   [writeBuffer putInt16:50];
   [writeBuffer putStringList:fileNames];
-  [writeBuffer putInt:resultId];
+  [writeBuffer putInt:[resultId intValue]];
   [writeBuffer putInt8:0];
   [writeBuffer send];
 }
@@ -519,10 +517,10 @@
   [writeBuffer send];
 }
 
-- (void)sendRemoveDownload:(int)fileId
+- (void)sendRemoveDownload:(NSNumber *)fileId
 {
   [writeBuffer putInt16:11];
-  [writeBuffer putInt:fileId];
+  [writeBuffer putInt:[fileId intValue]];
 }
 
 - (void)sendGetUploaders
