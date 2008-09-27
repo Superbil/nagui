@@ -11,7 +11,7 @@
 @class NgHostState;
 
 @interface NgClientInfo : NSObject {
-  int clientId;
+  NSNumber *clientId;
   NSString *name;
   NSString *fileName;
   NgHostState *state;
@@ -20,7 +20,7 @@
   NSColor *color;
 }
 
-@property int clientId;
+@property(assign) NSNumber *clientId;
 @property(assign) NSString *name;
 @property(assign) NSString *fileName;
 @property(assign) NgHostState *state;
