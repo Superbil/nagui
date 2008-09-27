@@ -10,12 +10,12 @@
 
 
 @interface NgSharedFile : NSObject {
-  int fileId;
+  NSNumber *fileId;
   NSString *fileName;
   int64_t fileSize;
 }
 
-@property int fileId;
+@property(assign) NSNumber *fileId;
 @property(assign) NSString *fileName;
 @property int64_t fileSize;
 
