@@ -52,7 +52,6 @@
          informative:@""];
       }
     }
-    [nagui.shareManager reloadSourcePath:source destDir:dest];
     [indicator removeFromSuperview];
     [nagui.taskManager removeTask:self];
   }
