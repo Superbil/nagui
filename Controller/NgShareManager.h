@@ -21,7 +21,6 @@
   FSEventStreamRef stream;
   BOOL edit;
   NSOpenPanel *choosePanel;
-  NSMutableDictionary *folders;
 }
 
 @property(readonly) NSTreeController *shareController;
@@ -35,7 +34,6 @@
 - (IBAction)setAsIncomingFiles:sender;
 - (IBAction)setAsIncomingDirectories:sender;
 
-- (void)reloadSourcePath:(NSString *)source destDir:(NSString *)dest;
 - (NSArray *)uniqueFolders;
 
 @end

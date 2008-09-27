@@ -29,9 +29,7 @@
 
 - (void)awakeFromNib
 {
-  folders = [NSMutableDictionary dictionaryWithCapacity:10];
   root = [[NgGroup alloc] initName:@"" type:NgNone];
-  // [root addGroup:@"All Files" type:NgSmartAllFiles];
   [shareController bind:@"contentArray" toObject:root withKeyPath:@"folders" options:nil];
 
   [filesTable setTarget:self];
@@ -61,29 +59,6 @@
   }
 }
 
-//- (void)removeRedundancy
-//{
-//  NSMutableArray *newShares = [NSMutableArray arrayWithCapacity:[shares count]];
-//  for (NgGroup *longF in shares) {
-//    BOOL found = NO;
-//    for (NgGroup *shortF in shares) {
-//      if (longF != shortF) {
-//        if ([[longF path] contains:[shortF path]] && [shortF type] == NgAllFiles
-//            && [longF type] != NgIncomingFiles && [longF type] != NgIncomingDirectories) {
-//          found = YES;
-//          break;
-//        }
-//      }
-//    }
-//    if (found) {
-//      [self unshare:[longF path]];
-//    } else {
-//      [newShares addObject:longF];
-//    }
-//  }
-//  shares = newShares;
-//}
-
 - (void)reloadSmartGroups
 {
   for (NgGroup *g in [root folders]) {
@@ -104,14 +79,6 @@
     // NSLog(@"reloaded %@", path);
     [self reloadSmartGroups];
   }
-  // [root reloadDir:path];
-}
-
-- (void)reloadSourcePath:(NSString *)sourcePath destDir:(NSString *)destDir
-{
-//  NSString *sourceDir = [sourcePath stringByDeletingLastPathComponent];
-//  [root reloadDir:sourceDir];
-//  [root reloadDir:destDir];
 }
 
 static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEvents, void *eventPaths,
@@ -136,16 +103,10 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
 
 - (void)parseSharedFolders:(NSString *)msg
 {
-  // [root willChangeValueForKey:@"folders"];
-  // [[root folders] removeAllObjects];
-  // [root addGroup:@"All Files" type:NgSmartAllFiles];
-  // [root didChangeValueForKey:@"folders"];
-  
   NSArray *lines = [msg componentsSeparatedByString:@"Shared directories:\n"];
   if ([lines count] == 2) {
     lines = [[lines objectAtIndex:1] componentsSeparatedByString:@"\n"];
 
-//    [root willChangeValueForKey:@"folders"];
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:[lines count]];
     [array addObject:[[NgSmartGroup alloc] initName:@"All Files" type:NgSmartAllFiles]];
     
@@ -161,38 +122,22 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
         } else if ([strategy isEqualToString:@"only_directory"]) {
           type = NgOnlyDirectory;
         } else if ([strategy isEqualToString:@"incoming_files"]) {
-//          incomingFiles = path;
           type = NgIncomingFiles;
         } else if ([strategy isEqualToString:@"incoming_directories"]) {
-//          incomingDirectories = path;
           type = NgIncomingDirectories;
         }
         if (type) {
           path = [path mldonkeyFullPath];
           [array addObject:[NgFileGroup groupWithPath:path type:type]];
-          // [root addGroup:path type:stra];
-//          NSLog(@"%d", [[root folders] count]);
-//          NgFileGroup *group = [self addGroupPath:path type:stra];
-//          if (group) {
-//            [shareController addObject:group];
-//          }
         }
       }
     }
     [root willChangeValueForKey:@"folders"];
     [[root folders] addAndRemove:array];
     [root didChangeValueForKey:@"folders"];
-//    [root didChangeValueForKey:@"folders"];
-//    [sharesOutline setNeedsDisplay];
-//    [self removeRedundancy];
-//    [shareController rearrangeObjects];
     
     [self monitor];
   }
-//  if (!root) {
-//    NgFolder *folder = [[NgFolder alloc] initParent: nil path:@"/" name:@"" shared:NSOffState icon:nil];
-//    self.root = folder;
-//  }
 }
 
 - (IBAction)openFile:sender
@@ -295,21 +240,6 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
     [shareController setSelectionIndexPath:[selected indexPath]];
   }
 }
-//- (void)moveFileThread:(NSArray *)args
-//{
-//  NSString *sourcePath = [args objectAtIndex:0];
-//  NSString *destPath = [args objectAtIndex:1];
-//  if ([sourcePath isEqualToString:destPath]) {
-//    return;
-//  }
-//  NSArray *destComponents = [destPath pathComponents];
-//  NSString *destFolder = [destComponents objectAtIndex:[destComponents count] - 2];
-//  self.status = [NSString stringWithFormat:@"Moving %@ to %@", [[sourcePath pathComponents] lastObject], destFolder];
-////  [self performSelectorOnMainThread:@selector(setStart) withObject:nil waitUntilDone:NO];
-//  NSError *error;
-//  [[NSFileManager defaultManager] moveItemAtPath:sourcePath toPath:destPath error:&error];
-//  self.status = @"";
-//}
 
 - (IBAction)addFolder:sender
 {
@@ -332,8 +262,6 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
     [choosePanel beginSheetForDirectory:nil file:nil modalForWindow:[nagui window] modalDelegate:self
                        didEndSelector:@selector(openPanelDidEnd:returnCode:contextInfo:) contextInfo:nil];
   }
-//  [NSApp beginSheet:addFolderWindow modalForWindow:nagui.window modalDelegate:self
-//     didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:) contextInfo:nil];
 }
 
 - (void)sharePath:(NSString *)path strategy:(NSString *)strategy
@@ -351,11 +279,6 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
     [nagui.protocolHandler sendCommand:@"shares"];
   }
 }
-
-//- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(int)returnCode contextInfo:(void *)contextInfo
-//{
-//  [sheet orderOut:self];
-//}
 
 - (IBAction)removeFolder:sender
 {
@@ -391,7 +314,6 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
           }
         }
       }
-//      [root reloadDir:srcDir];
     }
   }
 }
