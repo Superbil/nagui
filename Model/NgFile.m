@@ -24,8 +24,7 @@
 - (BOOL)isEqual:other
 {
   if ([other isKindOfClass:[NgFile class]]) {
-    NgFile *file = other;
-    return [path isEqualToString:[file path]];
+    return [path isEqualToString:[other path]];
   }
   return NO;
 }
@@ -127,7 +126,7 @@
 
 - (BOOL)match:(NSString *)str
 {
-  if ([name contains:str] || [tags contains:str]) {
+  if ([name containsCaseInsensitive:str] || [path containsCaseInsensitive:str] || [tags containsCaseInsensitive:str]) {
     return YES;
   }
   return NO;
