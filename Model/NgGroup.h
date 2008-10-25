@@ -39,5 +39,6 @@ typedef enum {
 - (BOOL)removeFolder;
 - (NSMutableArray *)allFiles;
 - (BOOL)isSubgroupOf:(NgGroup *)group;
+- (NSString *)origPath;
 
 @end

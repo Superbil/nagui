@@ -172,4 +172,10 @@
   }
   return NO;
 }
+
+- (NSString *)origPath
+{
+  return nil;
+}
+
 @end
