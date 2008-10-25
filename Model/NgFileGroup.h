@@ -10,13 +10,16 @@
 #import "NgGroup.h"
 
 @interface NgFileGroup : NgGroup {
+  NSString *origPath;
   NSString *path;
   NSArray *contents;
 }
 
+@property(readonly) NSString *origPath;
 @property(assign) NSString *path;
 
 + (NgFileGroup *)groupWithPath:(NSString *)path type:(NgGroupType)type;
++ (NgFileGroup *)groupWithPath:(NSString *)path;
 + (BOOL)reload:(NSString *)path;
 
 - (void)setIcon;

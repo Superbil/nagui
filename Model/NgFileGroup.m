@@ -20,12 +20,14 @@ static NSMapTable *fileGroups;
 
 @implementation NgFileGroup
 
+@synthesize origPath;
 @synthesize path;
 @synthesize type;
 
 - initPath:(NSString *)p type:(NgGroupType)t
 {
-  path = p;
+  path = [p mldonkeyFullPath];
+  origPath = p;
   type = t;
 //  name = [[NSFileManager defaultManager] displayNameAtPath:path];
 //  [self setIcon];
@@ -44,6 +46,11 @@ static NSMapTable *fileGroups;
   g = [[NgFileGroup alloc] initPath:path type:type];
   [fileGroups setObject:g forKey:path];
   return g;
+}
+
++ (NgFileGroup *)groupWithPath:(NSString *)path
+{
+  return [NgFileGroup groupWithPath:path type:[nagui.shareManager shareType:path]];
 }
 
 + (BOOL)reload:(NSString *)path
@@ -176,7 +183,7 @@ static NSMapTable *fileGroups;
       }
       if ([fileMan fileExistsAtPath:newPath isDirectory:&isDir]) {
         if (isDir && ![workspace isFilePackageAtPath:newPath]) {
-          [newFolders addObject:[NgFileGroup groupWithPath:newPath type:NgAllFiles]];
+          [newFolders addObject:[NgFileGroup groupWithPath:newPath]];
         } else {
           [newFiles addObject:[[NgFile alloc] initPath:newPath]];
         }
@@ -214,7 +221,7 @@ static NSMapTable *fileGroups;
 - (int)addGroup:(NSString *)folderName type:(NgGroupType)t
 {
   NSString *newPath = [path stringByAppendingPathComponent:folderName];
-  NgFileGroup *newFolder = [NgFileGroup groupWithPath:newPath type:NgAllFiles];
+  NgFileGroup *newFolder = [NgFileGroup groupWithPath:newPath type:t];
   [newFolder createFolder];
   [self willChangeValueForKey:@"folders"];
   [folders addObject:newFolder];
