@@ -51,7 +51,7 @@
 {
   NgGroup *group = [shareController selectedObject];
   if (group) {
-    NSString *path = [group path];
+    NSString *path = [group origPath];
     if (path) {
       [self unsharePath:path];
       [nagui.protocolHandler sendCommand:@"shares"];
@@ -108,14 +108,15 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
     lines = [[lines objectAtIndex:1] componentsSeparatedByString:@"\n"];
 
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:[lines count]];
-    [array addObject:[[NgSmartGroup alloc] initName:@"All Files" type:NgSmartAllFiles]];
+    shareType = [NSMutableDictionary dictionaryWithCapacity:[lines count]];
     
     for (NSString *line in lines) {
       NSString *trimmed = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
       NSArray *words = [trimmed componentsSeparatedByString:@" "];
-      if ([words count] == 3) {
-        NSString *path = [words objectAtIndex:1];
-        NSString *strategy = [words objectAtIndex:2];
+      if ([words count] >= 3) {
+        NSArray *middle = [words subarrayWithRange:NSMakeRange(1, [words count] - 2)]; 
+        NSString *path = [middle componentsJoinedByString:@" "];
+        NSString *strategy = [words lastObject];
         int type = 0;
         if ([strategy isEqualToString:@"all_files"]) {
           type = NgAllFiles;
@@ -127,11 +128,30 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
           type = NgIncomingDirectories;
         }
         if (type) {
-          path = [path mldonkeyFullPath];
-          [array addObject:[NgFileGroup groupWithPath:path type:type]];
+          [shareType setObject:[NSNumber numberWithInt:type] forKey:path];
+          
+          NgFileGroup *g = [NgFileGroup groupWithPath:path type:type]; 
+          BOOL sub = NO;
+
+          for (int i = 0; i < [array count];) {
+            NSString *aPath = [[array objectAtIndex:i] path];
+            if ([path hasPrefix:aPath]) {
+              sub = YES;
+            }
+            if ([aPath hasPrefix:path]) {
+              [array removeObjectAtIndex:i];
+            } else {
+              i++;
+            }
+          }
+          if (!sub) {
+            [array addObject:g];
+          }
         }
       }
     }
+    [array addObject:[[NgSmartGroup alloc] initName:@"All Files" type:NgSmartAllFiles]];
+
     [root willChangeValueForKey:@"folders"];
     [[root folders] addAndRemove:array];
     [root didChangeValueForKey:@"folders"];
@@ -347,10 +367,10 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
   } else if ([item action] == @selector(paste:)) {
     return [self pastePossible];
   }
-  int tag = [item tag];
-  if (tag == 1 && ![sharedFileController selectedObject]) {
-    return NO;
-  }
+//  int tag = [item tag];
+//  if (tag == 1 && ![sharedFileController selectedObject]) {
+//    return NO;
+//  }
   return YES;
 }
 
@@ -394,15 +414,16 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
   NSMutableArray *uniqueFolders = [NSMutableArray arrayWithCapacity:[groups count]];
   for (NgGroup *group in groups) {
     if ([group path]) {
-      BOOL sub = NO;
-      for (NgGroup *g in groups) {
-        if ([group isSubgroupOf:g]) {
-          sub = YES;
-        }
-      }
-      if (!sub) {
-        [uniqueFolders addObject:[group path]];
-      }
+      [uniqueFolders addObject:[group path]];
+//      BOOL sub = NO;
+//      for (NgGroup *g in groups) {
+//        if ([group isSubgroupOf:g]) {
+//          sub = YES;
+//        }
+//      }
+//      if (!sub) {
+//        [uniqueFolders addObject:[group path]];
+//      }
     }
   }
   // NSLog(@"%@", uniqueFolders);
@@ -439,6 +460,15 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
 - (IBAction)setAsIncomingDirectories:sender
 {
   [self setAs:@"incoming_directories"];
+}
+
+- (int)shareType:(NSString *)path
+{
+  NSNumber *num = [shareType objectForKey:path];
+  if (num) {
+    return [num intValue];
+  }
+  return NgNone;
 }
 
 @end

@@ -21,6 +21,7 @@
   FSEventStreamRef stream;
   BOOL edit;
   NSOpenPanel *choosePanel;
+  NSMutableDictionary *shareType;
 }
 
 @property(readonly) NSTreeController *shareController;
@@ -35,5 +36,6 @@
 - (IBAction)setAsIncomingDirectories:sender;
 
 - (NSArray *)uniqueFolders;
+- (int)shareType:(NSString *)path;
 
 @end
