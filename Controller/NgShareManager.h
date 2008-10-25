@@ -16,6 +16,8 @@
   IBOutlet id sharesOutline;
   IBOutlet id filesTable;
   IBOutlet NSProgressIndicator *loading;
+  IBOutlet NSPanel *timeShiftPanel;
+  IBOutlet NSTextField *shiftAmount;
   
   NgGroup *root;
   FSEventStreamRef stream;
@@ -34,8 +36,10 @@
 - (IBAction)unshare:sender;
 - (IBAction)setAsIncomingFiles:sender;
 - (IBAction)setAsIncomingDirectories:sender;
+- (IBAction)closePanel:sender;
 
 - (NSArray *)uniqueFolders;
 - (int)shareType:(NSString *)path;
+- (void)adjustSync:sender;
 
 @end

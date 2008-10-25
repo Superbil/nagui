@@ -87,4 +87,26 @@
   return [modified componentsJoinedByString:str];
 }
 
+- (NSString *)shiftTime:(int)t
+{
+  NSRange r = [self rangeOfString:@"<sync start=" options:NSCaseInsensitiveSearch];
+  if (r.location == NSNotFound) {
+    return self;
+  } else {
+    int start = r.location + r.length;
+    int i = start;
+    for (; i < [self length]; i++) {
+      unichar c = [self characterAtIndex:i];
+      if (c < '0' || c > '9') {
+        break;
+      }
+    }
+    NSString *before = [self substringToIndex:start];
+    NSString *number = [self substringWithRange:NSMakeRange(start, i - start)];
+    NSString *after = [self substringFromIndex:i];
+    number = [NSString stringWithFormat:@"%d", [number intValue] + t];
+    return [NSString stringWithFormat:@"%@%@%@", before, number, after];
+  }
+}
+
 @end

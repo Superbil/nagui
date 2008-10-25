@@ -471,4 +471,48 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
   return NgNone;
 }
 
+- (void)adjustSync:sender
+{
+  NgFile *file = [sharedFileController selectedObject];
+  NSString *path = [file path];
+  if ([[path pathExtension] isEqualToString:@"smi"]) {
+    [[NSApplication sharedApplication] beginSheet:timeShiftPanel modalForWindow:[nagui window]
+                                    modalDelegate:self
+                                   didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
+                                      contextInfo:nil];
+  }
+}
+
+- (void)sheetDidEnd:(NSWindow *)sheet returnCode:(int)code contextInfo:(void *)context
+{
+  if (code != 1) {
+    return;
+  }
+  NgFile *file = [sharedFileController selectedObject];
+  NSString *path = [file path];
+  NSError *err = nil;
+  NSString *content = [NSString stringWithContentsOfFile:path encoding:NSISOLatin1StringEncoding error:&err];
+  if (err) {
+    [nagui alert:[err localizedDescription] informative:@"can't read file"];
+    return;
+  }
+  NSArray *lines = [content componentsSeparatedByString:@"\n"];
+  NSMutableArray *output = [NSMutableArray arrayWithCapacity:[lines count]];
+  int t = [shiftAmount floatValue] * 1000;
+  for (NSString *line in lines) {
+    [output addObject:[line shiftTime:t]];
+  }
+  content = [output componentsJoinedByString:@"\n"];
+  [content writeToFile:path atomically:YES encoding:NSISOLatin1StringEncoding error:&err];
+  if (err) {
+    [nagui alert:[err localizedDescription] informative:@"can't write file"];
+  }
+}
+
+- (IBAction)closePanel:sender
+{
+  [[NSApplication sharedApplication] endSheet:timeShiftPanel returnCode:[sender tag]];
+  [timeShiftPanel orderOut:sender];
+}
+
 @end

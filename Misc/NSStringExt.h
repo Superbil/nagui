@@ -19,5 +19,6 @@
 - (BOOL)isSameString:(NSString *)str;
 - (NSString *)mldonkeyFullPath;
 - (NSString *)separate:(NSString *)str prefix:(NSString *)prefix;
+- (NSString *)shiftTime:(int)t;
 
 @end

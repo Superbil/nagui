@@ -47,10 +47,11 @@
     if (!error) {
       NSError *err = nil;
       [[NSFileManager defaultManager] removeItemAtPath:source error:&err];
-      if (err) {
-        [nagui alert:[NSString stringWithFormat:@"Can't remove '%@'", [source lastPathComponent]]
-         informative:@""];
-      }
+      
+//      if (err) {
+//        [nagui alert:[NSString stringWithFormat:@"Can't remove '%@'", [source lastPathComponent]]
+//         informative:@""];
+//      }
     }
     [indicator removeFromSuperview];
     [nagui.taskManager removeTask:self];
