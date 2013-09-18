@@ -20,7 +20,7 @@ enum {
 
 @implementation NgSmartGroup
 
-@synthesize name;
+//@synthesize name;
 
 - initName:(NSString *)n type:(NgGroupType)t
 {

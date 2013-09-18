@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -82,7 +82,6 @@
 		18DB8FB30E7EC80600B9CB75 /* SmartFolderIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 18DB8FB20E7EC80600B9CB75 /* SmartFolderIcon.icns */; };
 		18DB90070E7ED0B900B9CB75 /* NgGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB90060E7ED0B900B9CB75 /* NgGroup.m */; };
 		18DB900A0E7ED0C900B9CB75 /* NgSmartGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DB90090E7ED0C900B9CB75 /* NgSmartGroup.m */; };
-		18DB908C0E80223A00B9CB75 /* To do.txt in Resources */ = {isa = PBXBuildFile; fileRef = 18DB908B0E80223A00B9CB75 /* To do.txt */; };
 		18E8D1710E702CC6002AC3C2 /* sharemanager.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E8D1700E702CC6002AC3C2 /* sharemanager.png */; };
 		18E8D1D00E716459002AC3C2 /* advancedsettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E8D1CF0E716459002AC3C2 /* advancedsettings.png */; };
 		18E8D2300E717355002AC3C2 /* NgOption.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E8D22F0E717355002AC3C2 /* NgOption.m */; };
@@ -219,7 +218,6 @@
 		18DB90060E7ED0B900B9CB75 /* NgGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgGroup.m; sourceTree = "<group>"; };
 		18DB90080E7ED0C900B9CB75 /* NgSmartGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgSmartGroup.h; sourceTree = "<group>"; };
 		18DB90090E7ED0C900B9CB75 /* NgSmartGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgSmartGroup.m; sourceTree = "<group>"; };
-		18DB908B0E80223A00B9CB75 /* To do.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "To do.txt"; sourceTree = "<group>"; };
 		18E8CFDF0E6D9E09002AC3C2 /* NgProgressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NgProgressCell.h; sourceTree = "<group>"; };
 		18E8CFE00E6D9E09002AC3C2 /* NgProgressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NgProgressCell.m; sourceTree = "<group>"; };
 		18E8D1700E702CC6002AC3C2 /* sharemanager.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sharemanager.png; sourceTree = "<group>"; };
@@ -460,7 +458,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				18DB908B0E80223A00B9CB75 /* To do.txt */,
 			);
 			name = Nagui;
 			sourceTree = "<group>";
@@ -519,8 +516,12 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Nagui" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -574,7 +575,6 @@
 				18DB87230E79A15F00B9CB75 /* AlertCautionIcon.icns in Resources */,
 				18DB891C0E7BFA2C00B9CB75 /* Folder16.png in Resources */,
 				18DB8FB30E7EC80600B9CB75 /* SmartFolderIcon.icns in Resources */,
-				18DB908C0E80223A00B9CB75 /* To do.txt in Resources */,
 				18308B7B0E8412DF001BFCC9 /* incomingDir.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -665,9 +665,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -682,6 +682,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -695,30 +696,31 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_GC = required;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_VERSION = 4.2;
+				GCC_OPTIMIZATION_LEVEL = 1;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_ENABLE_OBJC_GC = required;
-				GCC_VERSION = 4.2;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};

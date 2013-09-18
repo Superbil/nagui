@@ -22,7 +22,7 @@ static NSMapTable *fileGroups;
 
 @synthesize origPath;
 @synthesize path;
-@synthesize type;
+//@synthesize type;
 
 - initPath:(NSString *)p type:(NgGroupType)t
 {
