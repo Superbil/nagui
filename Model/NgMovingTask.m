@@ -70,7 +70,8 @@ static void statusCallback(FSFileOperationRef fileOp, const char *currentItem, F
   if ([source isSameDir:dest]) {
     return;
   }
-  NSDictionary *attrs = [[NSFileManager defaultManager] fileAttributesAtPath:source traverseLink:YES];
+    NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfItemAtPath:source error:nil];
+                         
   size = [[attrs objectForKey:NSFileSize] longLongValue];
 
   FSFileOperationRef fileOp = FSFileOperationCreate(kCFAllocatorDefault);

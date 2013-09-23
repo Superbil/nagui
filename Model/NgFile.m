@@ -67,7 +67,7 @@
 - (NSNumber *)size
 {
   if (!size) {
-    NSDictionary *attrs = [[NSFileManager defaultManager] fileAttributesAtPath:path traverseLink:YES];
+    NSDictionary *attrs = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil];
     size = [attrs objectForKey:NSFileSize];
   }
   return size;

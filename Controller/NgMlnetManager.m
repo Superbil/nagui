@@ -70,7 +70,7 @@
 - (void)choosePanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode contextInfo:(void *)contextInfo
 {
   if (returnCode == NSOKButton) {
-    [[NSUserDefaults standardUserDefaults] setValue:[panel filename] forKey:@"mlnetPath"];
+    [[NSUserDefaults standardUserDefaults] setValue:[panel URLs] forKey:@"mlnetPath"];
   }
 }
 

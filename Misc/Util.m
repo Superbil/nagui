@@ -109,7 +109,7 @@ NSTask *launch(NSFileHandle **output, NSFileHandle **err, NSString *path, ...)
   va_list args;
   va_start(args, path);
   id arg;
-  while (arg = va_arg(args, id)) {
+  while ((arg = va_arg(args, id))) {
     [array addObject:arg];
   }
   va_end(args);
@@ -139,7 +139,7 @@ NSTask *launchNoOutput(NSString *path, ...)
   va_list args;
   va_start(args, path);
   id arg;
-  while (arg = va_arg(args, id)) {
+  while ((arg = va_arg(args, id))) {
     [array addObject:arg];
   }
   va_end(args);

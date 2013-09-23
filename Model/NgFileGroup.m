@@ -151,7 +151,7 @@ static NSMapTable *fileGroups;
   NSFileManager *fileMan = [NSFileManager defaultManager];
   NSString *newPath = path;
   int i = 2;
-  while (![fileMan createDirectoryAtPath:newPath attributes:nil]) {
+  while (![fileMan createDirectoryAtPath:newPath withIntermediateDirectories:false attributes:nil error:nil]) {
     newPath = [path stringByAppendingFormat:@" %d", i++];
   }
   
@@ -168,7 +168,7 @@ static NSMapTable *fileGroups;
 - (BOOL)reload
 {
   NSFileManager *fileMan = [NSFileManager defaultManager];
-  NSArray *newContents = [fileMan directoryContentsAtPath:path];
+  NSArray *newContents = [fileMan contentsOfDirectoryAtPath:path error:nil];
   if (![contents isEqualToArray:newContents]) {
     // NSLog(@"%@ loaded", path);
     contents = newContents;

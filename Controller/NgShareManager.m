@@ -292,7 +292,7 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
 - (void)openPanelDidEnd:(NSOpenPanel *)panel returnCode:(int)returnCode contextInfo:(void *)contextInfo
 {
   if (returnCode == NSOKButton) {
-    NSArray *array = [panel filenames];
+    NSArray *array = [panel URLs];
     for (NSString *path in array) {
       [self sharePath:path strategy:@"all_files"];
     }
@@ -320,7 +320,7 @@ static void feCallback(ConstFSEventStreamRef streamRef, void *info, size_t numEv
       for (NSString *path in files) {
         NSString *dir = [path stringByDeletingLastPathComponent];
         NSArray *fileArray = [NSArray arrayWithObject:[path lastPathComponent]];
-        int tag = 0;
+        long tag = 0;
         [[NSWorkspace sharedWorkspace] performFileOperation:NSWorkspaceRecycleOperation
                                                      source:dir destination:@"" files:fileArray tag:&tag];
         if (tag < 0) {

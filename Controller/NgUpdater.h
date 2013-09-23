@@ -12,7 +12,7 @@
 @interface NgUpdater : NSObject {
   NSMutableData *received;
 //  NSURLConnection *connection;
-  int version;
+  long version;
 }
 
 - (void)checkUpdate;

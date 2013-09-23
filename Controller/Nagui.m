@@ -52,10 +52,10 @@ Nagui *nagui;
   NSString *downloadsIni = [mldonkey stringByAppendingPathComponent:@"downloads.ini"];
   BOOL isDir;
   if (![fileMan fileExistsAtPath:mldonkey isDirectory:&isDir]) {
-    [fileMan createDirectoryAtPath:mldonkey attributes:nil];
+      [fileMan createDirectoryAtPath:mldonkey withIntermediateDirectories:false attributes:nil error:nil];
   } else if (!isDir) {
-    [fileMan removeFileAtPath:mldonkey handler:nil];
-    [fileMan createDirectoryAtPath:mldonkey attributes:nil];
+      [fileMan removeItemAtPath:mldonkey error:nil];
+      [fileMan createDirectoryAtPath:mldonkey withIntermediateDirectories:false attributes:nil error:nil];
   }
   if (![fileMan fileExistsAtPath:downloadsIni]) {
     NSString *str = [NSString stringWithFormat:@" allowed_ips = [\
